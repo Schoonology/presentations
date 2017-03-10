@@ -48,11 +48,11 @@ module.exports = {
     }, {
       test: /\.css$/,
       loaders: ["style-loader", "raw-loader"],
-      include: __dirname
+      include: [__dirname, path.join(__dirname, '../../..')]
     }, {
       test: /\.svg$/,
       loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "assets")
+      include: [path.join(__dirname, "assets"), path.join(__dirname, "../../shared")]
     }, {
       test: /\.png$/,
       loader: "url-loader?mimetype=image/png",
