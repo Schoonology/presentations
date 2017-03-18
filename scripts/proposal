@@ -4,6 +4,10 @@ IFS=$'\n\t'
 
 NAME=${1}
 SLUG=${2:-$(echo "$NAME" | tr -d "\n" | tr -cs "[:alnum:]" "-" | tr "[:upper:]" "[:lower:]")}
+NEWLINE=$'\
+'
+
+sed -i '' "s/<\!-- next_talk -->/- ${NAME}$NEWLINE<\!-- next_talk -->/" README.md
 
 mkdir -p "$SLUG"
 cat <<EOF > "$SLUG/README.md"

@@ -2,6 +2,12 @@
 
 A set of talks and the tools that generated them, all sprung out of the recesses of my mind.
 
+## Table of Contents
+
+- Lattice: An Introduction to Mesh Networks on the Raspberry Pi
+- Why I Failed Calc 207
+<!-- next_talk -->
+
 ## Technology
 
 A new, JavaScript-based presentation framework comes out every week. While [Reveal][reveal] seemed to be king once upon a time, I've lost track of what all the cool kids are using at this point. I've settled with [Spectacle][spectacle] at the moment, but I imagine that'll change at some point, too.
