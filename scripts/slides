@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -evuo pipefail
+IFS=$'\n\t'
+
+NAME=${1}
+SLUG=${2:-$(echo "$NAME" | tr -d "\n" | tr -cs "[:alnum:]" "-" | tr "[:upper:]" "[:lower:]")}
+
+mkdir -p "$SLUG"
+git clone https://github.com/FormidableLabs/spectacle-boilerplate "$SLUG/slides"
+(
+  cd "$SLUG/slides"
+  yarn
+  rm -rf .git LICENSE README.markdown assets/*
+  sed -i "" "s/Spectacle\ Boilerplate/$NAME/" index.html
+  sed -i "" "s/Spectacle\ Boilerplate/$NAME/" presentation/index.jsx
+)
+git add "$SLUG/slides"
+git commit -m "Add boilerplate for '$NAME'."

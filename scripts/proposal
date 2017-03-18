@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -evuo pipefail
+IFS=$'\n\t'
+
+mkdir -p "$1"
+cat <<EOF > "$1/README.md"
+# $1
+
+## Abstract
+
+## Description
+
+## Additional Notes
+
+EOF
