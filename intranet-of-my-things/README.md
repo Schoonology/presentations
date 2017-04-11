@@ -4,7 +4,7 @@
 
 We are on the cusp of an unprecedented age of corporate control over our daily lives though Internet-enabled Things. Even as web developers, however, we often lack direct access to these same devices in our own homes. Terms like Zigbee, Z-Wave and Lutron may seem foreign to us, but these standards make up the backbone of the Internet of Things. If we call ourselves web developers, why should this "Internet" feel so distant?
 
-In this talk we will explore how the Internet of Things works today and how we might be able to change it for the better, transferring control back to product owners from product creators.
+Learn how these protocols work, why it matters, and explore what Open Source has to teach the Things.
 
 ## Description
 

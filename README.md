@@ -4,7 +4,12 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 
 ## Table of Contents
 
+- Beatboxing at my Desk: Software and Music
+- Better Living Through Electricity: How the Internet of Things improves my marriage
+- Infinite Possibilities: Procedural Content Generation
+- The Intranet of My Things
 - Lattice: An Introduction to Mesh Networks on the Raspberry Pi
+- UDP, DIY, IoT, and You
 - Why I Failed Calc 207
 <!-- next_talk -->
 
