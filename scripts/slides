@@ -10,7 +10,7 @@ NEWLINE=$'\
 sed -i '' "s/<\!-- next_talk -->/- ${NAME}$NEWLINE<\!-- next_talk -->/" README.md
 
 mkdir -p "$SLUG"
-git clone https://github.com/FormidableLabs/spectacle-boilerplate "$SLUG/slides"
+git clone https://github.com/Schoonology/spectacle-boilerplate "$SLUG/slides"
 (
   cd "$SLUG/slides"
   yarn
