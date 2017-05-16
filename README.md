@@ -11,6 +11,7 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 - Lattice: An Introduction to Mesh Networks on the Raspberry Pi
 - UDP, DIY, IoT, and You
 - Why I Failed Calc 207
+- The Test-Driven Spectrum
 <!-- next_talk -->
 
 ## Technology

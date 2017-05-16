@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="650px" viewBox="0 0 650 650" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>map-knowledge</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="100%" cy="6.123234e-15%" fx="100%" fy="6.123234e-15%" r="141.421356%" id="radialGradient-1">
+            <stop stop-color="#6EFF00" offset="0%"></stop>
+            <stop stop-color="#377F00" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Slides" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="map-knowledge" sketch:type="MSArtboardGroup">
+            <g id="Map" sketch:type="MSLayerGroup" transform="translate(100.000000, 29.000000)" stroke="#FFFFFF" stroke-width="2">
+                <rect id="Rectangle-1" fill="url(#radialGradient-1)" sketch:type="MSShapeGroup" x="0" y="21" width="500" height="500"></rect>
+                <circle id="Oval-1" fill="#D0011B" sketch:type="MSShapeGroup" cx="500" cy="21" r="21"></circle>
+            </g>
+            <g id="Questions" sketch:type="MSLayerGroup" transform="translate(23.000000, 122.000000)" font-weight="526" font-family="Source Sans Pro" sketch:alignment="middle" font-size="42" fill="#FFFFFF">
+                <text id="What-am-I-building?" sketch:type="MSTextLayer" transform="translate(26.000000, 178.375000) rotate(-90.000000) translate(-26.000000, -178.375000) ">
+                    <tspan x="-151.807" y="193.375">What am I building?</tspan>
+                </text>
+                <text id="How-does-it-work?" sketch:type="MSTextLayer">
+                    <tspan x="162.504" y="492">How does it work?</tspan>
+                </text>
+            </g>
+            <g id="Path" sketch:type="MSLayerGroup" transform="translate(269.000000, 196.000000)" stroke="#F8E81C" stroke-width="8">
+                <path d="M0.296875,195.769531 C17.5664062,172.820312 39.0697937,194.554688 60.7106781,172.796875 C82.3515625,151.039062 31.734375,105.652344 53.8671875,79.1757812 C76,52.6992188 94.4296875,76.9882814 131.421358,43" id="Line" stroke-dasharray="16,8" sketch:type="MSShapeGroup"></path>
+                <polygon id="Triangle-1" sketch:type="MSShapeGroup" transform="translate(147.698485, 29.698485) rotate(-315.000000) translate(-147.698485, -29.698485) " points="147.698485 3.69848481 163.698485 55.6984848 131.698485 55.6984848 "></polygon>
+            </g>
+            <text id="Omnipotent" sketch:type="MSTextLayer" font-family="Source Sans Pro" font-size="32" font-weight="526" sketch:alignment="middle" fill="#FFFFFF">
+                <tspan x="370.804" y="130">Omnipotent</tspan>
+            </text>
+            <text id="Confused" sketch:type="MSTextLayer" font-family="Source Sans Pro" font-size="32" font-weight="526" sketch:alignment="middle" fill="#FFFFFF">
+                <tspan x="159.2" y="492">Confused</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
