@@ -6,6 +6,13 @@ NAME=${1}
 SLUG=${2:-$(echo "$NAME" | tr -d "\n" | tr -cs "[:alnum:]" "-" | tr "[:upper:]" "[:lower:]")}
 NEWLINE=$'\
 '
+VERSION=$(node -p 'Number(process.version.split(".")[0].slice(1)) >= 6')
+
+if [[ "$VERSION" == "false" ]]
+then
+  echo "Please run with Node v6 or later."
+  exit 1
+fi
 
 sed -i '' "s/<\!-- next_talk -->/- ${NAME}$NEWLINE<\!-- next_talk -->/" README.md
 
@@ -13,10 +20,13 @@ mkdir -p "$SLUG"
 git clone https://github.com/Schoonology/spectacle-boilerplate "$SLUG/slides"
 (
   cd "$SLUG/slides"
-  yarn
   rm -rf .git LICENSE README.markdown assets/*
   sed -i "" "s/Spectacle\ Boilerplate/$NAME/" index.html
-  sed -i "" "s/Spectacle\ Boilerplate/$NAME/" presentation/index.jsx
+  sed -i "" "s/Spectacle\ Boilerplate/$NAME/" presentation/index.js
 )
 git add "$SLUG/slides"
 git commit -m "Add boilerplate for '$NAME'."
+(
+  cd "$SLUG/slides"
+  yarn
+)
