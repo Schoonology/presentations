@@ -1,0 +1,12 @@
+  {
+    "user": {
+      ...
+    },
+    "retrieved": "2017-05-18T22:19:02Z",
++   "teams:123412-1234-12341234": {
++     "name": "ACME Widget Company"
++   },
++   "teams:653465-6534-65346345": {
++     "name": "ACME Widgets Bowling Team"
++   }
+  }

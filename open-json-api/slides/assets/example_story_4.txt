@@ -1,0 +1,14 @@
+  {
+    "name": "Bob Thingama",
+    "email": "thingama.bob@example.com",
++   "teams": [
++     {
++       "id": "123412-1234-12341234",
++       "role": "admin"
++     },
++     {
++       "id": "653465-6534-65346345",
++       "role": "member"
++     }
++   ]
+  }

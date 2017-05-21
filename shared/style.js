@@ -19,6 +19,8 @@ export const colors = {
   BRAND_TEXT: 'green',
   PRIMARY_TEXT: 'white',
   SUBTLE_TEXT: 'grey',
+  LINK_TEXT: 'cyan',
+  TRANSPARENT: 'transparent',
   bg: getBackground,
 }
 
@@ -29,6 +31,8 @@ export const theme = createTheme({
   'green': '#6eff00',
   'white': '#f8f8f8',
   'grey': '#909090',
+  'cyan': '#00ccff',
+  'transparent': 'transparent',
 }, {
   primary: 'Source Sans Pro',
 })

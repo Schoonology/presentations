@@ -1,0 +1,4 @@
+  {
+    "name": "Bob Thingama",
+    "email": "thingama.bob@example.com"
+  }

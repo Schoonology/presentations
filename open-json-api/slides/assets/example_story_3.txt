@@ -1,0 +1,8 @@
+  {
+    "name": "Bob Thingama",
+    "email": "thingama.bob@example.com",
++   "teamIds": [
++     "123412-1234-12341234",
++     "653465-6534-65346345"
++   ]
+  }

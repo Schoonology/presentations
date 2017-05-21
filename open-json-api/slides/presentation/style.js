@@ -19,18 +19,26 @@ export const colors = {
   BRAND_TEXT: 'green',
   PRIMARY_TEXT: 'white',
   SUBTLE_TEXT: 'grey',
+  JOKE_TEXT: 'dark_grey',
+  INVISIBLE_TEXT: 'very_dark_grey',
   LINK_TEXT: 'cyan',
+  JAVASCRIPT: 'gold',
+  TRANSPARENT: 'transparent',
   bg: getBackground,
 }
 
 export const theme = createTheme({
-  'primary-bg': '#404040',
-  'secondary-bg': '#336699',
-  'tertiary-bg': '#e73c71',
+  'primary-bg': '#303030',
+  'secondary-bg': '#2040a0',
+  'tertiary-bg': '#e03070',
   'green': '#6eff00',
   'white': '#f8f8f8',
-  'grey': '#909090',
+  'grey': 'rgba(255, 255, 255, 0.7)',
+  'dark_grey': 'rgba(255, 255, 255, 0.4)',
+  'very_dark_grey': 'rgba(255, 255, 255, 0.1)',
   'cyan': '#00ccff',
+  'gold': '#ffcc00',
+  'transparent': 'transparent',
 }, {
   primary: 'Source Sans Pro',
 })
