@@ -12,6 +12,7 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 - UDP, DIY, IoT, and You
 - Why I Failed Calc 207
 - The Test-Driven Spectrum
+- Open JSON API
 <!-- next_talk -->
 
 ## Technology

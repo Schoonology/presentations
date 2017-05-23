@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="260px" viewBox="0 0 400 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>track-heart-tracker</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="87" height="49"></rect>
+        <rect id="path-3" x="0" y="0" width="87" height="49"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="track-heart-tracker" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-1" fill="#4A4A4A" sketch:type="MSShapeGroup" x="0" y="0" width="400" height="260" rx="12"></rect>
+            <path d="M293.584534,196 L310,260 L90,260 L106.415466,196 L293.584534,196 Z" id="Rectangle-2" stroke="#383838" stroke-width="2" fill="#2B2B2B" sketch:type="MSShapeGroup"></path>
+            <rect id="Rectangle-2" fill="#458CDE" sketch:type="MSShapeGroup" x="29" y="30" width="342" height="157" rx="12"></rect>
+            <g id="Oval-9-+-Oval-9-Copy-+-Rectangle-5" sketch:type="MSLayerGroup" transform="translate(75.000000, 66.000000)" fill="#000000">
+                <circle id="Oval-9" sketch:type="MSShapeGroup" cx="37" cy="37" r="37"></circle>
+                <circle id="Oval-9-Copy" sketch:type="MSShapeGroup" cx="213" cy="37" r="37"></circle>
+                <rect id="Rectangle-5" sketch:type="MSShapeGroup" x="37" y="0" width="176" height="74"></rect>
+            </g>
+            <g id="Oval-1-Copy-3-+-Oval-1-Copy-4" sketch:type="MSLayerGroup" transform="translate(90.000000, 81.000000)" stroke="#731034" stroke-width="2" fill="#E03070">
+                <path d="M27.3926285,49.0236918 C27.3926285,49.0236918 54,34.1236397 54,14.9950121 C54,-4.13361546 27.3926285,-4.77652578 27.3926285,12.6164566 C27.3926285,-4.7765255 2.7147334e-15,-4.3747061 1.33226763e-15,14.9950121 C2.71974241e-15,34.3647303 27.3926285,49.0236918 27.3926285,49.0236918 Z" id="Oval-1-Copy-3" sketch:type="MSShapeGroup"></path>
+                <path d="M193.392628,49.0236918 C193.392628,49.0236918 220,34.1236397 220,14.9950121 C220,-4.13361546 193.392628,-4.77652578 193.392628,12.6164566 C193.392628,-4.7765255 166,-4.3747061 166,14.9950121 C166,34.3647303 193.392628,49.0236918 193.392628,49.0236918 Z" id="Oval-1-Copy-4" sketch:type="MSShapeGroup"></path>
+            </g>
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(8.000000, 9.000000)" stroke="#323232" stroke-width="2" fill="#000000">
+                <circle id="Oval-3" sketch:type="MSShapeGroup" cx="8" cy="8" r="8"></circle>
+                <circle id="Oval-3-Copy" sketch:type="MSShapeGroup" cx="376" cy="8" r="8"></circle>
+                <circle id="Oval-3-Copy-2" sketch:type="MSShapeGroup" cx="376" cy="232" r="8"></circle>
+                <circle id="Oval-3-Copy-3" sketch:type="MSShapeGroup" cx="8" cy="232" r="8"></circle>
+            </g>
+            <g id="Rectangle-3-+-Oval-7-+-Oval-8" sketch:type="MSLayerGroup" transform="translate(157.000000, 81.000000)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <circle id="Oval-7" fill="#000000" sketch:type="MSShapeGroup" mask="url(#mask-2)" cx="-48" cy="25" r="72"></circle>
+                <circle id="Oval-8" fill="#000000" sketch:type="MSShapeGroup" mask="url(#mask-2)" cx="135" cy="25" r="99"></circle>
+                <mask id="mask-4" sketch:name="Mask Copy" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask-Copy" stroke="#4A4A4A" stroke-width="2" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

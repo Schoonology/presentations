@@ -5,6 +5,8 @@ import CodeSlide from "spectacle-code-slide"
 for (let key in Spectacle) { global[key] = Spectacle[key] }
 
 const images = {
+  beach: require('../assets/beach.jpg'),
+  bellingham: require('../assets/bellingham.jpg'),
   jsonapi: require('../assets/jsonapi.jpg'),
   openapi: require('../assets/openapi.jpg'),
   logo_td: require('../../../shared/assets/td-logo-white.svg'),
@@ -33,10 +35,21 @@ require("../assets/styles.css");
 
 import { theme, colors } from "./style.js"
 
+function trimLeft(spaces) {
+  return function trimLeftSpaces(line) {
+    return line.slice(spaces)
+  }
+}
+
 export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={[]} transitionDuration={0} progress="none" theme={theme} controls={false}>
+        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+          <Heading fit>2:15—Open JSON API in <S type="none" textColor={colors.JAVASCRIPT}>Node.js</S></Heading>
+          <Heading fit margin="4vh 0">ALSO: I have 10+ stickers on my laptop!</Heading>
+          <Heading fit textColor={colors.SUBTLE_TEXT}>(That's #9 on your bingo card.)</Heading>
+        </Slide>
         <Slide bgColor={colors.PRIMARY_BG}>
           <Heading textColor={colors.BRAND_TEXT} fit caps>Hello!</Heading>
           <Layout>
@@ -51,77 +64,77 @@ export default class Presentation extends React.Component {
               </List>
             </Fill>
           </Layout>
+          <Heading textColor={colors.JOKE_TEXT} fit>(If you would like a <Image src={images.logo_td} style={{
+            height: '1em',
+            verticalAlign: 'middle',
+            opacity: 0.4,
+          }}></Image> sticker, ask!)</Heading>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT} notes="Are you at the right talk?">
+          <Heading fit>Open JSON API</Heading>
+          <Heading fit margin="1vh 0 0">↪ in <S type="none" textColor={colors.JAVASCRIPT}>Node.js</S></Heading>
+        </Slide>
+        <Slide bgImage={images.bellingham}></Slide>
+        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+          <Heading fit caps>Who am I?</Heading>
+          <Heading textColor={colors.BRAND_TEXT} fit>Software Development Consultant</Heading>
+          <Heading fit margin="4vh 0">🕵🏽🕵🏻‍♀️ &ldquo;Agent&rdquo; 🕵🏾‍♀️🕵🏼</Heading>
+          <Heading fit textColor={colors.SUBTLE_TEXT}>(We wind up writing a lot of JavaScript.)</Heading>
         </Slide>
         <Slide bgColor={colors.TERTIARY_BG}>
-          <Heading fit>Software Development Consultant</Heading>
-          <Heading fit>&ldquo;Agent&rdquo;</Heading>
-        </Slide>
-        <Slide bgColor={colors.TERTIARY_BG}>
+          <Layout>
+            <Fill>
+              <div style={{
+                background: 'white',
+                height: '20vh',
+                margin: '2vh',
+                width: '20vh',
+                border: '2vh solid white',
+                borderRadius: '2vh',
+              }}><Image src={images.logo_38studios} height="100%"/></div>
+            </Fill>
+            <Fill>
+              <div style={{
+                background: 'white',
+                height: '20vh',
+                margin: '2vh',
+                width: '20vh',
+                border: '2vh solid white',
+                borderRadius: '2vh',
+                position: 'relative',
+              }}><Image src={images.logo_redrobot} width="100%" style={{
+                left: '50%',
+                position: 'absolute',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}/></div>
+            </Fill>
+            <Fill>
+              <div style={{
+                background: 'white',
+                height: '20vh',
+                margin: '2vh',
+                width: '20vh',
+                border: '2vh solid white',
+                borderRadius: '2vh',
+              }}><Image src={images.logo_strongloop} height="100%"/></div>
+            </Fill>
+            <Fill>
+              <div style={{
+                background: 'white',
+                height: '20vh',
+                margin: '2vh',
+                width: '20vh',
+                border: '2vh solid white',
+                borderRadius: '2vh',
+              }}><Image src={images.logo_faithlife} height="95%"/></div>
+            </Fill>
+          </Layout>
           <Heading fit>MMORPGs</Heading>
           <Heading fit>Social Networks</Heading>
           <Heading fit>Developer Ergonomics</Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG}>
-          <div style={{
-            left: '50%',
-            position: 'fixed',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}>
-            <Layout>
-              <Fit>
-                <div style={{
-                  background: 'white',
-                  height: '30vh',
-                  margin: '2vh',
-                  width: '30vh',
-                  border: '2vh solid white',
-                  borderRadius: '2vh',
-                }}><Image src={images.logo_strongloop} height="100%"/></div>
-              </Fit>
-              <Fit>
-                <div style={{
-                  background: 'white',
-                  height: '30vh',
-                  margin: '2vh',
-                  width: '30vh',
-                  border: '2vh solid white',
-                  borderRadius: '2vh',
-                  position: 'relative',
-                }}><Image src={images.logo_redrobot} width="100%" style={{
-                  left: '50%',
-                  position: 'absolute',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                }}/></div>
-              </Fit>
-            </Layout>
-            <Heading fit caps textColor={colors.PRIMARY_TEXT}>Who am I?</Heading>
-            <Layout>
-              <Fit>
-                <div style={{
-                  background: 'white',
-                  height: '30vh',
-                  margin: '2vh',
-                  width: '30vh',
-                  border: '2vh solid white',
-                  borderRadius: '2vh',
-                }}><Image src={images.logo_faithlife} height="95%"/></div>
-              </Fit>
-              <Fit>
-                <div style={{
-                  background: 'white',
-                  height: '30vh',
-                  margin: '2vh',
-                  width: '30vh',
-                  border: '2vh solid white',
-                  borderRadius: '2vh',
-                }}><Image src={images.logo_38studios} height="100%"/></div>
-              </Fit>
-            </Layout>
-          </div>
-        </Slide>
-        <Slide bgColor={colors.SECONDARY_BG}>
+        <Slide bgColor={colors.SECONDARY_BG} notes="This talk is really about caring.">
           <Heading textColor={colors.PRIMARY_TEXT} fit caps>Who are you?</Heading>
           <Heading textColor={colors.BRAND_TEXT} fit>1+ people building or selling an API</Heading>
         </Slide>
@@ -133,57 +146,61 @@ export default class Presentation extends React.Component {
             verticalAlign: 'bottom',
           }}></Image> snack</Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="First version">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v1/users/:userId</Code>
           </Heading>
           <CodePane textSize='3vh' lang='json' source={examples.story_1}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="Teams team is done.">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v1/users/:userId</Code>
           </Heading>
           <CodePane textSize='3vh' lang='json' source={examples.story_2}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="Product: Multiple teams">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v2/users/:userId</Code>
           </Heading>
           <CodePane textSize='2.5vh' lang='json' source={examples.story_3}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="Product: Roles on each team">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v3/users/:userId</Code>
           </Heading>
           <CodePane textSize='2vh' lang='json' source={examples.story_4}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="Ops: Clock drift, need times">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v4/users/:userId</Code>
           </Heading>
           <CodePane textSize='2vh' lang='json' source={examples.story_5}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="CTO: Need hyperlinks.">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v4/users/:userId</Code>
           </Heading>
           <CodePane textSize='1.5vh' lang='json' source={examples.story_6}></CodePane>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG}>
+        <Slide bgColor={colors.PRIMARY_BG} notes="Client: Fewer requests">
           <Heading fit margin="0 0 2vh 0">
             <Code textColor={colors.PRIMARY_TEXT}>GET /v4/users/:userId</Code>
           </Heading>
           <CodePane textSize='3vh' lang='json' source={examples.story_7}></CodePane>
         </Slide>
         <Slide bgColor={colors.PRIMARY_BG}>
-          <div style={{ transform: 'scaleX(-1)'}}>
+          <div style={{ transform: 'scale(0.2,0.2)'}}>
             <Heading fit caps>Mess</Heading>
           </div>
         </Slide>
 
 
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgImage={images.beach} bgDarken={0.2} textColor={colors.PRIMARY_TEXT}>
           <Heading fit>REST</Heading>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+          <Heading fit textColor={colors.BRAND_TEXT}>What do we expect from</Heading>
+          <Heading fit>REST?</Heading>
         </Slide>
         <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
           <Heading fit>I. Resources</Heading>
@@ -230,7 +247,8 @@ export default class Presentation extends React.Component {
           <CodePane textSize='3vh' lang='json' margin="3vh 0 0" source={`{
   "company": {
     "id": "acme",
-    "name": "ACME Widget Company"
+    "name": "ACME Widget Company",
+    "widgets": ...
   },
   "widgets": [{
     "name": "Hornswoggler"
@@ -279,7 +297,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
 
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT} notes="Linguistics">
           <Heading fit margin="8vh 0">Descriptive</Heading>
           <Heading textSize="100vh" textFont="Baskerville" textColor={colors.INVISIBLE_TEXT} style={{
             position: 'absolute',
@@ -341,21 +359,6 @@ export default class Presentation extends React.Component {
 
 
         <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit><Image src={images.openapi} bgColor="white" style={{
-            border: '0.1vh solid white',
-            borderRadius: '0.1vh',
-            display: 'inline-block',
-            height: '2vh',
-            margin: '0.1vh 0',
-            verticalAlign: 'middle',
-            width: '2vh',
-          }}></Image> Open API</Heading>
-          <Heading textSize="100vh" textFont="Baskerville" textColor={colors.INVISIBLE_TEXT} style={{
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}>&amp;</Heading>
           <Heading fit><Image src={images.jsonapi} bgColor="white" style={{
             border: '0.1vh solid white',
             borderRadius: '0.1vh',
@@ -365,7 +368,24 @@ export default class Presentation extends React.Component {
             verticalAlign: 'middle',
             width: '2vh',
           }}></Image> JSON API</Heading>
+          <Heading textSize="100vh" textFont="Baskerville" textColor={colors.INVISIBLE_TEXT} style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}>&amp;</Heading>
+          <Heading fit><Image src={images.openapi} bgColor="white" style={{
+            border: '0.1vh solid white',
+            borderRadius: '0.1vh',
+            display: 'inline-block',
+            height: '2vh',
+            margin: '0.1vh 0',
+            verticalAlign: 'middle',
+            width: '2vh',
+          }}></Image> Open API</Heading>
         </Slide>
+
+
         <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
           <Heading fit><Image src={images.jsonapi} bgColor="white" style={{
             border: '0.1vh solid white',
@@ -382,23 +402,65 @@ export default class Presentation extends React.Component {
             <ListItem textSize='7vh'>Anti-bikeshedding</ListItem>
           </List>
         </Slide>
-        <CodeSlide bgColor={colors.SECONDARY_BG}
-          transition={[]}
-          lang="json"
-          code={examples.jsonapi}
-          ranges={[
-            { loc: [0, 47], title: 'JSON API Example' },
-            { loc: [4, 7], note: 'Resource (Identifier)' },
-            { loc: [7, 11], note: 'Attributes' },
-            { loc: [11, 22], note: 'Relationships' },
-            { loc: [22, 25], note: 'Hypermedia (Resource)' },
-            { loc: [17, 20], note: 'Hypermedia (Relation)' },
-            { loc: [1, 4], note: 'Metadata' },
-            { loc: [26, 45], note: 'Side-loading' },
-            { loc: [0, 46], note: '46 lines' },
-          ]}
-        />
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>JSON API Example</Heading>
+          <CodePane textSize='3vh' lang='json' source={examples.jsonapi}></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Resource <S type="none" textColor={colors.SUBTLE_TEXT}>/ Identifier</S></Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(4, 8).concat([
+              '      ...',
+              '    },',
+              '    "relationships": {',
+              '      ...',
+              '    }',
+              '  }',
+            ]).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Attributes</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(7, 11).map(trimLeft(4)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Relationships</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(11, 22).map(trimLeft(4)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Hypermedia</Heading>
+          <CodePane textSize='3.5vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(22, 25).map(trimLeft(4)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Metadata</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(1, 4).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Side-loading</Heading>
+          <CodePane textSize='2.5vh' lang='json' source={
+            examples.jsonapi.split('\n').slice(26, 38).concat([
+              '    ...',
+              '  }]'
+            ]).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>46 lines</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.jsonapi
+          }></CodePane>
+        </Slide>
+
+
+        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT} notes="Used to be called Swagger.">
           <Heading fit><Image src={images.openapi} bgColor="white" style={{
             border: '0.1vh solid white',
             borderRadius: '0.1vh',
@@ -414,23 +476,72 @@ export default class Presentation extends React.Component {
             <ListItem textSize='7vh'>Language-agnostic</ListItem>
           </List>
         </Slide>
-        <CodeSlide
-          bgColor={colors.SECONDARY_BG}
-          transition={[]}
-          lang="json"
-          code={examples.openapi}
-          ranges={[
-            { loc: [0, 66], title: 'Open API Example' },
-            { loc: [1, 6], note: 'API metadata' },
-            { loc: [6, 9], note: 'Routes' },
-            { loc: [9, 17], note: 'Request format' },
-            { loc: [19, 29], note: 'Response format' },
-            { loc: [36, 52], note: 'Types' },
-            { loc: [13, 17], note: 'Validation' },
-            { loc: [43, 47], note: 'Validation' },
-            { loc: [0, 65], note: '65 lines' },
-          ]}
-        />
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Open API Example</Heading>
+          <CodePane textSize='3vh' lang='json' source={examples.openapi}></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>API metadata</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.openapi.split('\n').slice(1, 6).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Routes</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.openapi.split('\n').slice(6, 9).concat([
+              '        ...',
+              '      }',
+              '    }',
+              '  }'
+            ]).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Request format</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.openapi.split('\n').slice(9, 19).map(trimLeft(8)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Response format</Heading>
+          <CodePane textSize='2.5vh' lang='json' source={
+            examples.openapi.split('\n').slice(19, 33).map(trimLeft(8)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Type definitions</Heading>
+          <CodePane textSize='2vh' lang='json' source={
+            examples.openapi.split('\n').slice(36, 48).concat([
+              '          ...',
+              '        }',
+              '      }',
+              '    }',
+              '  }'
+            ]).map(trimLeft(2)).join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>Validation</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            [
+              '"required": true',
+              '"schema": {',
+              '  "$ref": "#/definitions/User"',
+              '}',
+              '"type": "string"',
+              '"format": "email"',
+            ].join('\n')
+          }></CodePane>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading fit>65 lines</Heading>
+          <CodePane textSize='3vh' lang='json' source={
+            examples.openapi
+          }></CodePane>
+        </Slide>
+
+
         <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
           <Heading fit caps>Open API <S type="none" textColor={colors.BRAND_TEXT}>+</S> JSON API <S type="none" textColor={colors.BRAND_TEXT}>=</S></Heading>
           <Heading fit>Open JSON API</Heading>
@@ -443,9 +554,9 @@ export default class Presentation extends React.Component {
           <Heading fit>Open JSON API</Heading>
           <Heading fit textColor={colors.BRAND_TEXT}>Challenges</Heading>
           <List style={{ listStyle: 'none' }}>
-            <ListItem textSize='7vh'>Verbose specifications</ListItem>
+            <ListItem textSize='7vh'>Verbose specifications <S type="none" textColor={colors.JOKE_TEXT}>(111 lines!)</S></ListItem>
             <ListItem textSize='7vh'>Steep learning curve(s)</ListItem>
-            <ListItem textSize='7vh'>Bikeshedding 😭</ListItem>
+            <ListItem textSize='7vh'>Upfront bikeshedding 😭</ListItem>
           </List>
         </Slide>
 
@@ -506,6 +617,11 @@ export default class Presentation extends React.Component {
               </List>
             </Fill>
           </Layout>
+          <Heading textColor={colors.JOKE_TEXT} fit>(If you would like a <Image src={images.logo_td} style={{
+            height: '1em',
+            verticalAlign: 'middle',
+            opacity: 0.4,
+          }}></Image> sticker, ask!)</Heading>
         </Slide>
         <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit textFont="Baskerville">Q<S type="none" textColor={colors.TRANSPARENT}>--</S>A</Heading>
