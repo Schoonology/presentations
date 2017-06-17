@@ -13,6 +13,7 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 - Why I Failed Calc 207
 - The Test-Driven Spectrum
 - Open JSON API
+- JavaScriptural Exegesis
 <!-- next_talk -->
 
 ## Technology
