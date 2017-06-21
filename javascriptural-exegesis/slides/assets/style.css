@@ -2,8 +2,12 @@ body {
   background: black !important;
 }
 
-td, li {
-  font-size: 4rem !important;
+.center {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
 .vignette {
@@ -18,4 +22,24 @@ td, li {
   transform: translate(-50%, -50%);
   width: 100vw;
   z-index: 1000;
+}
+
+.fluff {
+  transform: scale(1.25);
+}
+
+.bg-cite-container {
+  height: 100vh;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  z-index: 1000;
+}
+
+.bg-cite-link {
+  bottom: 5vh;
+  position: absolute;
+  right: 5vh;
 }

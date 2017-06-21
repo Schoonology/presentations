@@ -52,7 +52,7 @@ module.exports = {
     }, {
       test: /\.svg$/,
       loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "assets")
+      include: [path.join(__dirname, "assets"), path.join(__dirname, "../../shared")]
     }, {
       test: /\.png$/,
       loader: "url-loader?mimetype=image/png",
@@ -64,7 +64,7 @@ module.exports = {
     }, {
       test: /\.jpg$/,
       loader: "url-loader?mimetype=image/jpg",
-      include: path.join(__dirname, "assets")
+      include: [path.join(__dirname, "assets"), path.join(__dirname, "../../open-json-api")]
     }]
   }
 };

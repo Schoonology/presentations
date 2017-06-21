@@ -42,7 +42,8 @@ export const theme = createTheme({
   'gold': '#ffcc00',
   'transparent': 'transparent',
 }, {
-  primary: 'Source Sans Pro',
+  primary: 'Lato',
+  monospace: 'monospace'
 })
 
 console.log(theme)

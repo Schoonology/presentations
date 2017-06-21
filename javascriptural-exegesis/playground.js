@@ -133,5 +133,178 @@ console.log(ThisTest.ours())
 let ours = ThisTest.ours
 console.log(ours())
 
+{
+  var real = { answer: 42 }
+  var fake = Object.keys(real)
+    .reduce(function (obj, key) {
+      return Object.defineProperty(obj, key, {
+        get: function () {
+          console.log('Fetching ' + key + '...')
+          return real[key]
+        }
+      })
+    }, {})
+  fake.answer
+  // Fetching answer...
+  fake.missing
+}
 
+{
+  let real = { answer: 42 }
+  let fake = new Proxy(real, {
+    get: function (obj, key) {
+      console.log('Fetching ' + key + '...')
+      return obj[key]
+    }
+  })
+  fake.answer
+  // Fetching answer...
+  fake.missing
+}
 
+function doThingAsync() { return Promise.resolve() }
+
+{
+  let result = doThingAsync()
+    // -> p1
+    .then(function (resultOfP1) {})
+    // -> p2
+    .then(null, function (errorFromP2) {})
+    // -> p3
+    .catch(function (errorFromP3) {})
+    // -> p4
+}
+
+{
+  doThingAsync()
+    .then(function (result) {
+      return Promise.resolve(42)
+    })
+    .then(console.log)
+}
+
+{
+  doThingAsync()
+    .then(function (result) {
+      return {
+        then(fn) { return fn(42) }
+      }
+    })
+    .then(console.log)
+}
+
+{
+  doThingAsync()
+    .then(function (result) {
+      return 42
+    })
+    .then(console.log)
+}
+
+{
+let arr = [1, 2, 3, 4, 5]
+console.log(arr.map((number) => { return number / 0 }))
+// [ Infinity, Infinity, Infinity, Infinity, Infinity ]
+console.log(arr.map((number, index) => number + index))
+// [ 1, 3, 5, 7, 9 ]
+console.log(arr.map(number => number % 2))
+// [ 1, 0, 1, 0, 1 ]
+}
+{
+const fibonacci = (n) => {
+  if (n === 0 || n === 1) {
+    return n
+  } else {
+    return arguments.callee(n - 1) + arguments.callee(n - 2)
+  }
+}
+// console.log(fibonacci(10))
+// // By itself:
+// // ReferenceError: arguments is not defined
+// // In another function:
+// // RangeError: Maximum call stack size exceeded
+}
+{
+function fibonacci(n) {
+  if (n === 0 || n === 1) {
+    return n
+  } else {
+    return arguments.callee(n - 1) + arguments.callee(n - 2)
+  }
+}
+console.log(fibonacci(10))
+}
+{
+console.log('--- this')
+let obj = {
+  viaFunction: function () {
+    return this.property
+  },
+  viaArrow: () => this.property,
+  property: 'test'
+}
+console.log(obj.viaFunction())
+// test
+console.log(obj.viaArrow())
+// undefined
+}
+
+// {
+// const ArrowClass = () => {}
+
+// var arrow = new ArrowClass()
+// }
+
+// {
+// const ArrowClass = () => {}
+
+// ArrowClass.prototype.greet = (name) => {
+//   console.log(`Hi, ${name}!`)
+// }
+// // TypeError: Cannot set property 'greet' of undefined
+// }
+
+// {
+// const generator = *() => {}
+// // SyntaxError: Unexpected token *
+// }
+
+{
+const buildOptions = () => { option: true }
+console.log(buildOptions())
+
+const buildOptionsFix = () => ({ option: true })
+console.log(buildOptionsFix())
+}
+
+{
+// function asyncThing(callback) {
+//   let fn = callback || err => { throw err; }
+//   // SyntaxError: Unexpected token ||
+//   fn(null)
+// }
+
+// function asyncThingFix(callback) {
+//   let fn = callback || (err => { throw err; })
+//   // SyntaxError: Unexpected token ||
+//   fn(null)
+// }
+}
+
+{
+// (() => console.log('foo')())
+// [Nothing happens.]
+// (() => { console.log('foo') }())
+// SyntaxError: missing ) after argument list
+// (() => { console.log('foo') })()
+// foo
+}
+
+{
+  let a = { foo: true, bar: 'please', answer: 42 }
+  console.log(a)
+  delete a['foo']
+  console.log(a)
+  Reflect.deleteProperty(a, 'answer')
+  console.log(a)
+}
