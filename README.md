@@ -14,6 +14,7 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 - The Test-Driven Spectrum
 - Open JSON API
 - JavaScriptural Exegesis
+- Jazz Hands &amp; Mute Buttons
 <!-- next_talk -->
 
 ## Technology
