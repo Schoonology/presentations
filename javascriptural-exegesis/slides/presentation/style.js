@@ -25,6 +25,7 @@ export const colors = {
   LINK_TEXT: 'cyan',
   JAVASCRIPT: 'gold',
   TRANSPARENT: 'transparent',
+  TEST_BG: 'black',
   bg: getBackground,
 }
 
@@ -35,12 +36,13 @@ export const theme = createTheme({
   'sepia-bg': '#605040',
   'green': '#6eff00',
   'white': '#f8f8f8',
-  'grey': 'rgba(255, 255, 255, 0.7)',
-  'dark_grey': 'rgba(255, 255, 255, 0.4)',
-  'very_dark_grey': 'rgba(255, 255, 255, 0.1)',
+  'grey': 'rgba(255, 255, 255, 0.8)',
+  'dark_grey': 'rgba(255, 255, 255, 0.6)',
+  'very_dark_grey': 'rgba(255, 255, 255, 0.4)',
   'cyan': '#00ccff',
   'gold': '#ffcc00',
   'transparent': 'transparent',
+  'black': '#000000',
 }, {
   primary: 'Lato',
   monospace: 'monospace'

@@ -2,6 +2,10 @@ body {
   background: black !important;
 }
 
+blockquote span {
+  border-left-width: 0.25rem !important;
+}
+
 .center {
   left: 50%;
   position: fixed;
@@ -42,4 +46,54 @@ body {
   bottom: 5vh;
   position: absolute;
   right: 5vh;
+}
+
+.marker {
+  border: 0.2rem solid #6eff00;
+  border-radius: 2rem;
+  height: 2rem;
+  left: 9vw;
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+}
+
+.test-red {
+  background: #f00;
+  border-radius: 5vw;
+  height: 10vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 10vw;
+}
+
+.test-green {
+  background: #0f0;
+  border-radius: 5vw;
+  height: 10vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10vw;
+}
+
+.test-blue {
+  background: #00f;
+  border-radius: 5vw;
+  bottom: 0;
+  height: 10vw;
+  left: 0;
+  position: absolute;
+  width: 10vw;
+}
+
+.test-white {
+  background: #fff;
+  border-radius: 5vw;
+  bottom: 0;
+  height: 10vw;
+  position: absolute;
+  right: 0;
+  width: 10vw;
 }

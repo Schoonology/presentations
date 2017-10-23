@@ -43,6 +43,23 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["slide"]} transitionDuration={100} progress="none" theme={theme} controls={false}>
+        <Slide bgColor={colors.TEST_BG}>
+          <div className="bg-cite-container">
+            <div className="test-red"></div>
+            <div className="test-green"></div>
+            <div className="test-blue"></div>
+            <div className="test-white"></div>
+          </div>
+          <Heading textColor={colors.JAVASCRIPT}>Heading</Heading>
+          <Heading textColor={colors.BRAND_TEXT} textFont="monospace">Heading</Heading>
+          <BlockQuote>
+            <Quote textColor={colors.PRIMARY_TEXT}>This is a blockquote.</Quote>
+            <Cite textColor={colors.SUBTLE_TEXT}>This is a citation.</Cite>
+          </BlockQuote>
+          <List style={{listStyle: 'none'}} textColor={colors.JOKE_TEXT}>
+            <ListItem>This is a list item.</ListItem>
+          </List>
+        </Slide>
         <Slide bgColor={colors.bg('title')} textColor={colors.PRIMARY_TEXT}>
           <Heading fit textColor={colors.JAVASCRIPT}>
             JavaScriptural
@@ -53,12 +70,14 @@ export default class Presentation extends React.Component {
         </Slide>
         {this.renderWallBreaker('Hello!', { bgColor: colors.bg('title') })}
         <Slide bgImage={images.bellingham}>
-          <div className="vignette"></div>
+          <div className="bg-cite-container">
+            <div className="marker"></div>
+          </div>
         </Slide>
         <Slide bgColor={colors.bg('religion')}>
           <BlockQuote>
             <Quote textColor={colors.PRIMARY_TEXT}>A conscientious scruple; scrupulosity.</Quote>
-            <Quote style={{ paddingTop: '1rem' }} textColor={colors.JOKE_TEXT} textSize="2.5rem">↪ 19 point word!</Quote>
+            <Quote style={{ paddingTop: '1rem' }} textColor={colors.JOKE_TEXT} textSize="2.5rem">↪ 19-point word!</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>The Century Dictionary</Cite>
           </BlockQuote>
         </Slide>
@@ -91,13 +110,13 @@ export default class Presentation extends React.Component {
           <Heading size={6} textAlign="right" textColor={colors.PRIMARY_TEXT}>↪ <S type="none" textColor={colors.BRAND_TEXT}>&ldquo;Salvation&rdquo;</S></Heading>
         </Slide>
         <Slide bgColor={colors.bg('javascript')}>
-            <Heading fit>Programming language</Heading>
+            <Heading fit>Functional programming</Heading>
             <Heading fit caps margin="1rem 0" textColor={colors.BRAND_TEXT}>Frontend app delivery</Heading>
             <Heading fit>Semicolons</Heading>
             <Heading fit caps margin="1rem 0" textColor={colors.BRAND_TEXT}>Test-driven development</Heading>
             <Heading fit>Pair programming</Heading>
         </Slide>
-        <Slide bgColor={colors.bg('javascript')}>
+        <Slide bgColor={colors.bg('javascript')} notes="Full stop.">
           <Table>
             <TableBody>
               <TableRow textColor={colors.JOKE_TEXT}>
@@ -156,30 +175,9 @@ export default class Presentation extends React.Component {
             πράγμα (pragma)
           </Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>Relating to matters of fact or practical affairs <S type="none" textColor={colors.SUBTLE_TEXT}>often to the exclusion of intellectual or artistic matters</S>.</Quote>
+            <Quote textColor={colors.PRIMARY_TEXT}>Relating to matters of fact or practical affairs <S type="italic" textColor={colors.SUBTLE_TEXT}>often to the exclusion of intellectual or artistic matters</S>.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>Merriam-Webster Dictionary</Cite>
           </BlockQuote>
-        </Slide>
-        <Slide bgColor={colors.bg('pragma')}>
-          <Heading>I want to make people as productive as possible.</Heading>
-        </Slide>
-        <Slide bgColor={colors.SEPIA_BG} textColor={colors.PRIMARY_TEXT}>
-          <div className="vignette"></div>
-          <Heading fit margin="8vh 0">Descriptive</Heading>
-          <Heading textSize="100vh" textFont="Baskerville" textColor={colors.INVISIBLE_TEXT} style={{
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}>&amp;</Heading>
-          <Heading fit margin="8vh 0">Prescriptive</Heading>
-        </Slide>
-        <Slide bgColor={colors.bg('methods-bound')} notes={`
-We're not talking about "what could have been", we're talking about what is. I'm not interested in deriving perfect _dogma_ or deriding existing _dogma_ around how JavaScript is written. My goal is to come to a _pragmatic_ set of rules for teams working in JavaScript to write effective, consistent JavaScript.
-I may be tipping my hand a bit, but my number one opponent with a message like this is the tech lead proclaiming from on high a set of arbitrary rules that make everyone's life harder beneath him. (Though it need not be a "him", I certainly see this as a male-dominated behaviour.) The ideal outcome, on the other hand, would be for more teams to use tools like this to quickly come to complete, honest, inclusive consensus around coding styles and patterns.
-Just as with religion, there needs to be room for us to disagree on the conclusion, even if I hope to make a compelling argument for the method by which we reach them.
-`}>
-          <Heading>&ldquo;Methods defined in a <Code textColor={colors.PRIMARY_TEXT} textSize="1em">class</Code> should be bound automatically.&rdquo;</Heading>
         </Slide>
         <Slide bgColor={colors.bg('priorities')}>
           <Heading fit caps>Priorities:</Heading>
@@ -187,7 +185,7 @@ Just as with religion, there needs to be room for us to disagree on the conclusi
           <Heading textAlign="left">2. Maintenance</Heading>
           <Heading textAlign="left">3. Extension</Heading>
         </Slide>
-        <Slide bgColor={colors.bg('priorities')}>
+        <Slide bgColor={colors.bg('drop-quote')}>
           <Heading>The <S type="italic">next</S> person&rsquo;s comfort is my priority.</Heading>
         </Slide>
         <Slide bgColor={colors.bg('td-quote')}>
@@ -196,10 +194,37 @@ Just as with religion, there needs to be room for us to disagree on the conclusi
             <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent</Cite>
           </BlockQuote>
         </Slide>
-        <Slide bgColor={colors.bg('working-agreements')}>
+        <Slide bgColor={colors.bg('text-is-king')}>
           <Heading fit>Working Agreement</Heading>
           <Heading fit margin="2vh 0" textColor={colors.BRAND_TEXT}><S type="none" textFont="monospace">CONTRIBUTING</S></Heading>
           <Heading fit>&ldquo;Style Guide&rdquo;</Heading>
+        </Slide>
+        <Slide bgColor={colors.bg('text-is-king')} textColor={colors.PRIMARY_TEXT}>
+          <Table>
+            <TableBody>
+              <TableRow textColor={colors.JOKE_TEXT}>
+                <TableItem textSize="4rem">IEEE</TableItem>
+                <TableItem textSize="4rem">Medium</TableItem>
+              </TableRow>
+              <TableRow textColor={colors.SUBTLE_TEXT}>
+                <TableItem textSize="4rem">Slack</TableItem>
+                <TableItem textSize="4rem">GitHub</TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <Heading fit margin="2vh 0">👑 (Con)Text is king. 👑</Heading>
+          <Table>
+            <TableBody>
+              <TableRow textColor={colors.SUBTLE_TEXT}>
+                <TableItem textSize="4rem">Email</TableItem>
+                <TableItem textSize="4rem">Wikipedia</TableItem>
+              </TableRow>
+              <TableRow textColor={colors.JOKE_TEXT}>
+                <TableItem textSize="4rem">Twitter</TableItem>
+                <TableItem textSize="4rem">Blogs</TableItem>
+              </TableRow>
+            </TableBody>
+          </Table>
         </Slide>
         <Slide bgColor={colors.bg('exegesis')}>
           <Heading fit textColor={colors.PRIMARY_TEXT}>
@@ -241,33 +266,6 @@ Just as with religion, there needs to be room for us to disagree on the conclusi
         <Slide bgColor={colors.bg('eis-exe-exa')}>
           <Heading fit caps margin="0 0 2vh" textColor={colors.JAVASCRIPT}>Golden Rule</Heading>
           <Heading size={2} textColor={colors.PRIMARY_TEXT}>Do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to others what you would want them to do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to you.</Heading>
-        </Slide>
-        <Slide bgColor={colors.bg('eis-exe-exa')} textColor={colors.PRIMARY_TEXT}>
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">IEEE</TableItem>
-                <TableItem textSize="4rem">Medium</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">Slack</TableItem>
-                <TableItem textSize="4rem">GitHub</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
-          <Heading fit margin="2vh 0">👑 (Con)Text is king. 👑</Heading>
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">Email</TableItem>
-                <TableItem textSize="4rem">Wikipedia</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">Twitter</TableItem>
-                <TableItem textSize="4rem">Blogs</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
         </Slide>
         <Slide bgColor={colors.bg('method')} textColor={colors.PRIMARY_TEXT}>
           <Heading fit textColor={colors.BRAND_TEXT} margin="0 0 2vh">
