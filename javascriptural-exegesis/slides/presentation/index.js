@@ -40,9 +40,16 @@ export default class Presentation extends React.Component {
     )
   }
 
+  calculateContentSize() {
+    return {
+      contentHeight: '52.5vw',
+      contentWidth: '70vw',
+    }
+  }
+
   render() {
     return (
-      <Deck transition={["slide"]} transitionDuration={100} progress="none" theme={theme} controls={false}>
+      <Deck {...this.calculateContentSize()} transition={["slide"]} transitionDuration={100} progress="none" theme={theme} controls={false}>
         <Slide bgColor={colors.TEST_BG}>
           <div className="bg-cite-container">
             <div className="test-red"></div>
