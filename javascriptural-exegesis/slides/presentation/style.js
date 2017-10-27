@@ -24,6 +24,7 @@ export const colors = {
   INVISIBLE_TEXT: 'very_dark_grey',
   LINK_TEXT: 'cyan',
   JAVASCRIPT: 'gold',
+  INVISIBLE_JAVASCRIPT: 'very_dark_gold',
   TRANSPARENT: 'transparent',
   TEST_BG: 'black',
   bg: getBackground,
@@ -41,6 +42,7 @@ export const theme = createTheme({
   'very_dark_grey': 'rgba(255, 255, 255, 0.4)',
   'cyan': '#00ccff',
   'gold': '#ffcc00',
+  'very_dark_gold': 'rgba(255, 204, 0, 0.4)',
   'transparent': 'transparent',
   'black': '#000000',
 }, {
