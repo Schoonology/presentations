@@ -1,5 +1,4 @@
 html {
-  font-size: 1.8vh !important;
 }
 
 body {
@@ -105,4 +104,24 @@ hr {
   position: absolute;
   right: 0;
   width: 10vw;
+}
+
+.faux-table-cell {
+  display: inline-block;
+  width: 50%;
+}
+
+/* Prism theme overrides. */
+pre[class*="language-"] {
+  /*background: rgba(0, 0, 0, 0.7) !important;*/
+  border: 0 !important;
+  padding: 2rem !important;
+}
+
+.moar-code {
+  left: 50%;
+  max-width: 80vw !important;
+  position: relative;
+  transform: translate(-50%);
+  width: 80vw !important;
 }

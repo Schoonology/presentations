@@ -11,9 +11,11 @@ const images = {
   greek_books: require('../assets/greek-books.jpg'),
   library: require('../assets/library.jpg'),
   logo_td: require('../../../shared/assets/td-logo-white.svg'),
+  scripture: require('../assets/scripture.jpg')
 }
 
 preloader(images)
+require("normalize.css")
 require("../assets/style.css")
 
 import { theme, colors } from "./style.js"
@@ -27,7 +29,7 @@ export default class Presentation extends React.Component {
             <Image src={images.logo_td} height="13rem" margin='0 !important' display="block" />
           </Fill>
           <Fill>
-            <List style={{listStyle: 'none'}} margin="0" textColor={colors.PRIMARY_TEXT}>
+            <List margin="0">
               <ListItem>Michael Schoonmaker</ListItem>
               <ListItem><Link textColor={colors.LINK_TEXT} href="https://twitter.com/Schoonology">@Schoonology</Link></ListItem>
               <ListItem><Link textColor={colors.LINK_TEXT} href="mailto:schoon@testdouble.com">schoon@testdouble.com</Link></ListItem>
@@ -39,16 +41,9 @@ export default class Presentation extends React.Component {
     )
   }
 
-  calculateContentSize() {
-    return {
-      contentHeight: '52.5vw',
-      contentWidth: '70vw',
-    }
-  }
-
   render() {
     return (
-      <Deck {...this.calculateContentSize()} transition={[]} transitionDuration={0} progress="none" theme={theme} controls={false}>
+      <Deck transition={[]} transitionDuration={0} progress="none" theme={theme} controls={false}>
         <Slide bgColor={colors.TEST_BG}>
           <div className="bg-cite-container">
             <div className="test-red"></div>
@@ -59,15 +54,15 @@ export default class Presentation extends React.Component {
           <Heading textColor={colors.JAVASCRIPT}>Heading</Heading>
           <Heading textColor={colors.BRAND_TEXT} textFont="monospace">Heading</Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>This is a blockquote.</Quote>
+            <Quote>This is a blockquote.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>This is a citation.</Cite>
           </BlockQuote>
-          <List style={{listStyle: 'none'}} textColor={colors.JOKE_TEXT}>
+          <List textColor={colors.JOKE_TEXT}>
             <ListItem>This is a list item.</ListItem>
           </List>
         </Slide>
 
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit textColor={colors.JAVASCRIPT}>
             JavaScriptural
           </Heading>
@@ -77,6 +72,15 @@ export default class Presentation extends React.Component {
         </Slide>
 
         {this.renderWallBreaker('Hello!', { bgColor: colors.bg('title') })}
+
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <Heading fit textColor={colors.JAVASCRIPT}>
+            JavaScriptural
+          </Heading>
+          <Heading fit>
+            Exegesis
+          </Heading>
+        </Slide>
 
         <Slide bgImage={images.bellingham}>
           <div className="bg-cite-container">
@@ -96,20 +100,24 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgImage={images.desk} bgDarken={0.7}>
+          <Heading>As a leader, your best tool is setting priorities.</Heading>
+        </Slide>
+
+        <Slide bgImage={images.desk} bgDarken={0.7}>
           <Heading fit caps>Priorities:</Heading>
           <Heading textAlign="left">1. Understanding</Heading>
           <Heading textAlign="left">2. Maintenance</Heading>
           <Heading textAlign="left">3. Extension</Heading>
         </Slide>
 
-        <Slide bgColor={colors.PRIMARY_BG}>
-          <Heading>The <S type="italic">next</S> person&rsquo;s comfort is my priority.</Heading>
+        <Slide bgImage={images.desk} bgDarken={0.7}>
+          <Heading>The <S type="italic">next</S> person&rsquo;s comfort is my top priority.</Heading>
         </Slide>
 
         <Slide bgImage={images.airplane} bgDarken={0.7}>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>If the next person&rsquo;s comfort is the priority, than you must be consistent, and the only way to be consistent is to have rules.</Quote>
-            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent</Cite>
+            <Quote>If the next person&rsquo;s comfort is the priority, than you must be consistent, and the only way to be consistent is to have rules.</Quote>
+            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image display="inline" height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent</Cite>
           </BlockQuote>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
@@ -120,8 +128,8 @@ export default class Presentation extends React.Component {
 
         <Slide bgImage={images.library} bgDarken={0.7}>
           <Heading fit>Working Agreement</Heading>
-          <Heading fit margin="2vh 0" textColor={colors.BRAND_TEXT}><S type="none" textFont="monospace">CONTRIBUTING</S></Heading>
-          <Heading fit>&ldquo;Style Guide&rdquo;</Heading>
+          <Heading fit margin="2vh 0" textColor={colors.BRAND_TEXT}>**Lint settings</Heading>
+          <Heading fit><S type="none" textFont="monospace">CONTRIBUTING.md</S></Heading>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
               📸 Giammarco Boscaro, <Link src="https://unsplash.com/photos/OPzWvgL-upY" textColor={colors.LINK_TEXT}>Unsplash</Link>
@@ -129,29 +137,18 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
 
-        <Slide bgImage={images.greek_books} bgDarken={0.3}>
-          <Heading textSize="50vh" style={{
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}>???</Heading>
+        <Slide bgImage={images.library} bgDarken={0.7}>
+          <Heading textColor={colors.BRAND_TEXT} fit caps>Big Question</Heading>
+          <Heading>What rules should we use?</Heading>
           <div className="bg-cite-container">
-            <Heading textSize="10vh" textColor={colors.JOKE_TEXT} style={{
-              position: 'fixed',
-              left: '50%',
-              top: '10%',
-              transform: 'translate(-50%, -50%)',
-            }}>←🤔</Heading>
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
-              📸 Aris Sfakianakis, <Link src="https://unsplash.com/photos/AtLajzgFyAQ" textColor={colors.LINK_TEXT}>Unsplash</Link>
+              📸 Giammarco Boscaro, <Link src="https://unsplash.com/photos/OPzWvgL-upY" textColor={colors.LINK_TEXT}>Unsplash</Link>
             </Text>
           </div>
         </Slide>
 
-        <Slide bgImage={images.greek_books} bgDarken={0.7}>
-          <Heading>To the Greek!</Heading>
-          <List textColor={colors.PRIMARY_TEXT}>
+        <Slide bgImage={images.library} bgDarken={0.7}>
+          <List>
             <ListItem textSize="6rem">δόγμα <S type="none" textColor={colors.JOKE_TEXT}>(dogma)</S></ListItem>
             <ListItem textSize="6rem">πράγμα <S type="none" textColor={colors.JOKE_TEXT}>(pragma)</S></ListItem>
             <ListItem textSize="6rem">ἐξήγησις <S type="none" textColor={colors.JOKE_TEXT}>(exegesis)</S></ListItem>
@@ -159,13 +156,13 @@ export default class Presentation extends React.Component {
           </List>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
-              📸 Aris Sfakianakis, <Link src="https://unsplash.com/photos/AtLajzgFyAQ" textColor={colors.LINK_TEXT}>Unsplash</Link>
+              📸 Giammarco Boscaro, <Link src="https://unsplash.com/photos/OPzWvgL-upY" textColor={colors.LINK_TEXT}>Unsplash</Link>
             </Text>
           </div>
         </Slide>
 
         <Slide bgColor={colors.PRIMARY_BG}>
-          <Heading fit margin="0 0 8vh" textColor={colors.PRIMARY_TEXT}>
+          <Heading fit margin="0 0 8vh">
             δόγμα (dogma)
           </Heading>
           <Text fit textColor={colors.BRAND_TEXT}>
@@ -178,7 +175,7 @@ export default class Presentation extends React.Component {
             δόγμα (dogma)
           </Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>A principle or set of principles laid down by an authority as incontrovertibly true.</Quote>
+            <Quote margin="1rem 0 2rem">A principle or set of principles laid down by an authority as incontrovertibly true.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>English Oxford Dictionaries</Cite>
           </BlockQuote>
         </Slide>
@@ -192,7 +189,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor={colors.SECONDARY_BG}>
-          <Heading fit margin="0 0 8vh" textColor={colors.PRIMARY_TEXT}>
+          <Heading fit margin="0 0 8vh">
             πράγμα (pragma)
           </Heading>
           <Text fit textColor={colors.BRAND_TEXT}>
@@ -205,18 +202,18 @@ export default class Presentation extends React.Component {
             πράγμα (pragma)
           </Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>Relating to matters of fact or practical affairs <S type="italic" textColor={colors.SUBTLE_TEXT}>often to the exclusion of intellectual or artistic matters</S>.</Quote>
+            <Quote margin="1rem 0 2rem">Relating to matters of fact or practical affairs <S type="italic" textColor={colors.SUBTLE_TEXT}>often to the exclusion of intellectual or artistic matters</S>.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>Merriam-Webster Dictionary</Cite>
           </BlockQuote>
         </Slide>
 
         <Slide bgColor={colors.TERTIARY_BG}>
-          <Heading textColor={colors.PRIMARY_TEXT}>
+          <Heading>
             Making rules is not about how smart you are.
           </Heading>
         </Slide>
 
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit textColor={colors.INVISIBLE_JAVASCRIPT}>
             JavaScriptural
           </Heading>
@@ -226,7 +223,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor={colors.SECONDARY_BG}>
-          <Heading fit textColor={colors.PRIMARY_TEXT}>
+          <Heading fit>
             ἐξήγησις (exegesis)
           </Heading>
           <Text fit margin="6vh 0 4vh" textColor={colors.BRAND_TEXT}>
@@ -242,18 +239,18 @@ export default class Presentation extends React.Component {
             ἐξήγησις (exegesis)
           </Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>Critical explanation or interpretation of a text, especially of scripture.</Quote>
+            <Quote margin="1rem 0 2rem">Critical explanation or interpretation of a text, especially of scripture.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>English Oxford Dictionaries</Cite>
           </BlockQuote>
         </Slide>
 
         <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit caps margin="0 0 2vh" textColor={colors.JAVASCRIPT}>Golden Rule</Heading>
-          <Heading size={2} textColor={colors.PRIMARY_TEXT}>Do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to others what you would want them to do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to you.</Heading>
+          <Heading size={2}>Do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to others what you would want them to do <S type="none" textColor={colors.JOKE_TEXT}>(un)</S>to you.</Heading>
         </Slide>
 
         <Slide bgColor={colors.PRIMARY_BG}>
-          <Heading fit margin="0 0 8vh" textColor={colors.PRIMARY_TEXT}>
+          <Heading fit margin="0 0 8vh">
             [εἰςήγησις] (eisegesis)
           </Heading>
           <Heading fit textColor={colors.SUBTLE_TEXT}>
@@ -266,40 +263,26 @@ export default class Presentation extends React.Component {
             εἰςήγησις (eisegesis)
           </Heading>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>A subjective method of interpretation by introducing one&rsquo;s own opinions into the original.</Quote>
+            <Quote margin="1rem 0 2rem">A subjective method of interpretation by introducing one&rsquo;s own opinions into the original.</Quote>
             <Cite textColor={colors.SUBTLE_TEXT}>The Century Dictionary</Cite>
           </BlockQuote>
         </Slide>
 
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">IEEE</TableItem>
-                <TableItem textSize="4rem">Medium</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">Slack</TableItem>
-                <TableItem textSize="4rem">GitHub</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
-          <Heading fit margin="2vh 0">👑 <S type="none" textColor={colors.SUBTLE_TEXT}>(Con)</S>Text is king. 👑</Heading>
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">Email</TableItem>
-                <TableItem textSize="4rem">Wikis</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">Twitter</TableItem>
-                <TableItem textSize="4rem">Blogs</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">IEEE</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">Medium</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">Slack</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">GitHub</Text>
+          <Heading fit className="faux-table-jumbotron" margin="2rem 0">
+            👑 <S type="none" textColor={colors.SUBTLE_TEXT}>(Con)</S>Text is king. 👑
+          </Heading>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">Email</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">Wikis</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">Twitter</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">Blogs</Text>
         </Slide>
 
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit textColor={colors.JAVASCRIPT}>
             JavaScript<S type="none" textColor={colors.INVISIBLE_JAVASCRIPT}>ural</S>
           </Heading>
@@ -337,90 +320,58 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor={colors.TERTIARY_BG} notes="Full stop.">
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">ESNext</TableItem>
-                <TableItem textSize="4rem">Flow</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">CoffeeScript</TableItem>
-                <TableItem textSize="4rem">Standard</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
-          <Heading fit margin="2vh 0">
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">Vanilla</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">CoffeeScript</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">Flow</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">Standard</Text>
+          <Heading fit className="faux-table-jumbotron" margin="2rem 0">
             <S type="none" textColor={colors.JAVASCRIPT}>JavaScript</S> is a religion. 🙏
           </Heading>
-          <Table>
-            <TableBody>
-              <TableRow textColor={colors.SUBTLE_TEXT}>
-                <TableItem textSize="4rem">JSX</TableItem>
-                <TableItem textSize="4rem">TypeScript</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.JOKE_TEXT}>
-                <TableItem textSize="4rem">LiveScript</TableItem>
-                <TableItem textSize="4rem">Airbnb</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">TypeScript</Text>
+          <Text className="faux-table-cell" textColor={colors.SUBTLE_TEXT} textSize="4rem">JSX</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">RxJS</Text>
+          <Text className="faux-table-cell" textColor={colors.JOKE_TEXT} textSize="4rem">Airbnb</Text>
         </Slide>
 
-        <Slide bgImage={images.ancient_greek} bgDarken={0.7} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgImage={images.scripture} bgDarken={0.7}>
           <Heading>ECMAScript® Language Specification</Heading>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
-              📸 Darren Puttock, <Link src="https://www.flickr.com/photos/darrenputtock" textColor={colors.LINK_TEXT}>Flickr</Link>
+              📸 Aaron Burden, <Link src="https://unsplash.com/photos/-uj3Y7r1BeM" textColor={colors.LINK_TEXT}>Unsplash</Link>
             </Text>
           </div>
         </Slide>
 
-        <Slide bgImage={images.ancient_greek} bgDarken={0.7} textColor={colors.PRIMARY_TEXT}>
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableItem textSize="4rem">Genre</TableItem>
-                <TableItem textSize="4rem">Origins</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.BRAND_TEXT}>
-                <TableItem textSize="4rem">History</TableItem>
-                <TableItem textSize="4rem">Culture</TableItem>
-              </TableRow>
-              <TableRow>
-                <TableItem textSize="4rem">Author(s)</TableItem>
-                <TableItem textSize="4rem">Audience</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.BRAND_TEXT}>
-                <TableItem textSize="4rem">Syntax</TableItem>
-                <TableItem textSize="4rem">Grammar</TableItem>
-              </TableRow>
-              <TableRow>
-                <TableItem textSize="4rem">Symbology</TableItem>
-                <TableItem textSize="4rem">Philology</TableItem>
-              </TableRow>
-              <TableRow textColor={colors.BRAND_TEXT}>
-                <TableItem textSize="4rem">Epistemology</TableItem>
-                <TableItem textSize="4rem">Eschatology</TableItem>
-              </TableRow>
-            </TableBody>
-          </Table>
+        <Slide bgImage={images.scripture} bgDarken={0.7}>
+          <Text className="faux-table-cell"  textSize="4rem">Genre</Text>
+          <Text className="faux-table-cell"  textSize="4rem">Origins</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">History</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">Culture</Text>
+          <Text className="faux-table-cell"  textSize="4rem">Author</Text>
+          <Text className="faux-table-cell"  textSize="4rem">Audience</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">Syntax</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">Grammar</Text>
+          <Text className="faux-table-cell"  textSize="4rem">Symbology</Text>
+          <Text className="faux-table-cell"  textSize="4rem">Philology</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">Epistemology</Text>
+          <Text className="faux-table-cell" textColor={colors.BRAND_TEXT} textSize="4rem">Eschatology</Text>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
-              📸 Darren Puttock, <Link src="https://www.flickr.com/photos/darrenputtock" textColor={colors.LINK_TEXT}>Flickr</Link>
+              📸 Aaron Burden, <Link src="https://unsplash.com/photos/-uj3Y7r1BeM" textColor={colors.LINK_TEXT}>Unsplash</Link>
             </Text>
           </div>
         </Slide>
 
-        <Slide bgImage={images.ancient_greek} bgDarken={0.7} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgImage={images.scripture} bgDarken={0.7}>
           <Heading>¯\_(ツ)_/¯</Heading>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
-              📸 Darren Puttock, <Link src="https://www.flickr.com/photos/darrenputtock" textColor={colors.LINK_TEXT}>Flickr</Link>
+              📸 Aaron Burden, <Link src="https://unsplash.com/photos/-uj3Y7r1BeM" textColor={colors.LINK_TEXT}>Unsplash</Link>
             </Text>
           </div>
         </Slide>
 
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit>
             Inductive
           </Heading>
@@ -430,7 +381,7 @@ export default class Presentation extends React.Component {
           <Heading fit textColor={colors.JOKE_TEXT}>Exegesis for the rest of us!</Heading>
         </Slide>
 
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading textAlign="left">
             I. Observation
           </Heading>
@@ -441,28 +392,28 @@ export default class Presentation extends React.Component {
             III. Application
           </Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit>
             I. Observation
           </Heading>
           <hr/>
           <Heading textAlign="left" textColor={colors.SUBTLE_TEXT}>What does the text <S type="italic">say</S>?</Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit>
             II. Interpretation
           </Heading>
           <hr/>
           <Heading textAlign="left" textColor={colors.SUBTLE_TEXT}>What does the text <S type="italic">mean</S>?</Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit>
             III. Application
           </Heading>
           <hr/>
           <Heading textAlign="left" textColor={colors.SUBTLE_TEXT}>What does the text mean <S type="italic">for me</S>?</Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             Template
           </Heading>
@@ -470,14 +421,14 @@ export default class Presentation extends React.Component {
             Strings
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <CodePane lang="javascript" textSize="4vh" source={`let cost = 7.95
 console.log('Total cost: $' + cost)
 // Total cost: $7.95
 console.log(\`Total cost: $$\{cost\}\`)
 // Total cost: $7.95`} />
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <CodePane lang="javascript" textSize="4vh" source={`console.log('my-cli OPTION ANOTHER\\n\\
 Options:\\n\\
 ...')
@@ -488,21 +439,21 @@ console.log(\`my-cli OPTION ANOTHER
 Options:
 ...\`)`} />
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             I. Observation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <div className="center">
-            <List style={{listStyle: 'none'}}>
+            <List>
               <ListItem textSize="5vh"><S type="italic">SingleStringCharacter</S> ::</ListItem>
               <ListItem margin="0 0 0 10vw" style={{ whiteSpace: 'nowrap' }} textSize="5vh"><S type="italic">SourceCharacter</S> but not one of</ListItem>
               <ListItem margin="0 0 0 20vw" style={{ whiteSpace: 'nowrap' }} textSize="5vh"><S type="bold" textFont="monospace">'</S> or <S type="bold" textFont="monospace">\</S> or <S type="italic">LineTerminator</S></ListItem>
               <ListItem margin="0 0 0 10vw" textSize="5vh"><S type="bold" textFont="monospace">\</S> <S type="italic">EscapeSequence</S></ListItem>
               <ListItem margin="0 0 0 10vw" textSize="5vh"><S type="italic">LineContinuation</S></ListItem>
             </List>
-            <List style={{listStyle: 'none'}}>
+            <List>
               <ListItem textSize="5vh"><S type="italic">TemplateCharacter</S> ::</ListItem>
               <ListItem margin="0 0 0 10vw" textSize="5vh"><S type="bold" textFont="monospace">$</S> [lookahead ≠ <S type="bold" textFont="monospace">{'{'}</S>]</ListItem>
               <ListItem margin="0 0 0 10vw" textSize="5vh"><S type="bold" textFont="monospace">\</S> <S type="italic">EscapeSequence</S></ListItem>
@@ -513,23 +464,29 @@ Options:
             </List>
           </div>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             II. Interpretation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             III. Application
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>When writing a multiline string, use template literals (<code>``</code>).</Quote>
+            <Quote margin="1rem 0 2rem">When writing a multiline string, use template literals (<code>``</code>).</Quote>
             <Cite>Your team&lsquo;s Working Agreement, maybe</Cite>
           </BlockQuote>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <Heading textColor={colors.BRAND_TEXT}>ESLint*</Heading>
+          <Text fit margin="2rem 0"><Code>"no-useless-concat"</Code></Text>
+          <Text fit margin="2rem 0"><Code>"prefer-template"</Code></Text>
+          <Text margin="2rem 0" textAlign="right" textColor={colors.JOKE_TEXT}>*Kinda-maybe-so-so-ish</Text>
+        </Slide>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
             Proxies
           </Heading>
@@ -537,7 +494,7 @@ Options:
             Somebody Else&rsquo;s Object
           </Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <CodePane textSize="3vh" lang="javascript" source={`var real = { answer: 42 }
 var fake = Object.keys(real)
   .reduce(function (obj, key) {
@@ -554,8 +511,8 @@ fake.answer
 fake.missing
 // [Nothing.]`}/>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane textSize="3vh" lang="javascript" source={`let real = { answer: 42 }
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <CodePane textSize="3vh" lang="javascript" lineHighlight="5" source={`let real = { answer: 42 }
 let fake = new Proxy(real, {
   get: function (obj, key) {
     console.log('Fetching ' + key + '...')
@@ -568,32 +525,52 @@ fake.missing
 // Fetching missing...
 `}/>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
             I. Observation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>Methods of a handler object may be used to augment the implementation for one or more of the proxy object&rsquo;s internal methods.</Quote>
+            <Quote margin="1rem 0 2rem">Methods of a handler object may be used to augment the implementation for one or more of the proxy object&rsquo;s <S type="italic">internal methods.</S></Quote>
             <Cite><Link href="https://tc39.github.io/ecma262/#sec-proxy-object-internal-methods-and-internal-slots" textColor={colors.LINK_TEXT}>ECMAScript Language Specification, §9.5 &ldquo;Proxy Object Internal Methods and Internal Slots&rdquo;</Link></Cite>
           </BlockQuote>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
             II. Interpretation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
             III. Application
           </Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>testdouble.js</Heading>
-          <Heading fit margin="4vh 0 0"><Code textColor={colors.SUBTLE_TEXT}>src/object.js:47</Code></Heading>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <Heading fit style={{backgroundColor: 'black'}}>REDACTED</Heading>
+          <CodePane textSize="3vh" lang="javascript" lineHighlight="5" source={
+`for (var prop in source) {
+  if (!target.hasOwnProperty(prop)) {
+    target[prop] = source[prop]
+  }
+}`}/>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <Heading fit>testdouble.js</Heading>
+          <CodePane textSize="3vh" lang="javascript" lineHighlight="5" source={
+`function createTestDoubleObject() {
+  const obj = {}
+  return new Proxy(obj, {
+    get (target, propKey, receiver) {
+      if (!obj.hasOwnProperty(propKey)) {
+        obj[propKey] = createTestDoubleFunction()
+      }
+      return obj[propKey]
+    }
+  })
+} // src/object.js:32`}/>
+        </Slide>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             Promises
           </Heading>
@@ -601,21 +578,28 @@ fake.missing
             This is now Yet Another Talk About Promises™.
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             I. Observation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <List ordered className="center" style={{width:'80vw'}}>
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <List ordered className="center" style={{ width:'90vw' }}>
             <ListItem>Assert: <var>F</var> has a [[Promise]] internal slot whose value is an Object.</ListItem>
             <ListItem>Let <var>promise</var> be <var>F</var>.[[Promise]].</ListItem>
+            <ListItem textAlign="right" textSize="10vh" style={{
+              height: 0
+            }}>😨</ListItem>
             <ListItem>Let <var>alreadyResolved</var> be <var>F</var>.[[AlreadyResolved]].</ListItem>
             <ListItem>If <var>alreadyResolved</var>.[[Value]] is <strong>true</strong>, return <strong>undefined</strong>.</ListItem>
             <ListItem>Set <var>alreadyResolved</var>.[[Value]] to <strong>true</strong>.</ListItem>
             <ListItem>
               If SameValue(<var>resolution</var>, <var>promise</var>) is <strong>true</strong>, then
               <List margin="0 0 0 10vw" ordered type="a">
+                <ListItem margin="0 0 0 -10vw" textAlign="center" textSize="10vh" style={{
+                  height: 0,
+                  width: '10vw'
+                }}>😵</ListItem>
                 <ListItem>Let <var>selfResolutionError</var> be a newly created <strong>TypeError</strong> object.</ListItem>
                 <ListItem>Return RejectPromise(<var>promise</var>, <var>selfResolutionError</var>).</ListItem>
               </List>
@@ -634,6 +618,9 @@ fake.missing
               </List>
             </ListItem>
             <ListItem>Let <var>thenAction</var> be <var>then</var>.[[Value]].</ListItem>
+            <ListItem textAlign="right" textSize="10vh" style={{
+              height: 0
+            }}>👻</ListItem>
             <ListItem>
               If IsCallable(<var>thenAction</var>) is <strong>false</strong>, then
               <List margin="0 0 0 10vw" ordered type="a">
@@ -644,8 +631,8 @@ fake.missing
             <ListItem>Return <strong>undefined</strong>.</ListItem>
           </List>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="4vh" source={`let result = doThingAsync()
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`let result = doThingAsync()
   // -> p1
   .then(function (resultOfP1) {})
   // -> p2
@@ -654,7 +641,7 @@ fake.missing
   .catch(function (errorFromP3) {})
   // -> p4`}/>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <CodePane lang="javascript" textSize="4vh" source={`doThingAsync()
   // -> p1
   .then(function (result) {
@@ -664,7 +651,7 @@ fake.missing
   // -> p2
   .then(console.log)`}/>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT} notes="this then is not that then">
+        <Slide bgColor={colors.PRIMARY_BG}  notes="this then is not that then">
           <CodePane lang="javascript" textSize="4vh" source={`doThingAsync()
   .then(function (result) {
     return {
@@ -673,36 +660,36 @@ fake.missing
   })
   .then(console.log)`}/>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <CodePane lang="javascript" textSize="4vh" source={`doThingAsync()
   .then(function (result) {
     return 42
   })
   .then(console.log)`}/>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             II. Interpretation
           </Heading>
         </Slide>
-        <Slide bgColor={colors.PRIMARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.PRIMARY_BG}>
           <Heading fit>
             III. Application
           </Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit caps>
-            Arrow Functions
+            Arrow
           </Heading>
-          <Heading fit textColor={colors.JOKE_TEXT}>
-            Salt & pepper &ldquo;to taste&rdquo;
+          <Heading fit caps>
+            Functions
           </Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit>Parameters <S type="none" textFont="monospace">=></S> Code</Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <List className="center" style={{listStyle: 'none'}}>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <List className="center">
             <ListItem><S type="italic">ArrowFunction</S><S type="none" textColor={colors.JAVASCRIPT} textFont="monospace" style={{verticalAlign: 'sub'}}>[In, Yield, Await]</S>:</ListItem>
             <ListItem margin="0 0 0 10vw"><S type="italic">ArrowParameters</S><S type="none" textColor={colors.JAVASCRIPT} textFont="monospace" style={{verticalAlign: 'sub'}}>[?Yield, ?Await]</S>[no <S type="italic">LineTerminator</S> here] => <S type="italic">ConciseBody</S><S type="none" textColor={colors.JAVASCRIPT} textFont="monospace" style={{verticalAlign: 'sub'}}>[?In]</S></ListItem>
             <ListItem><S type="italic">ArrowParameters</S><S type="none" textColor={colors.JAVASCRIPT} textFont="monospace" style={{verticalAlign: 'sub'}}>[Yield, Await]</S>:</ListItem>
@@ -713,8 +700,9 @@ fake.missing
             <ListItem margin="0 0 0 10vw"><S type="bold" textFont="monospace">{'{'}</S> <S type="italic">FunctionBody</S><S type="none" textColor={colors.JAVASCRIPT} textFont="monospace" style={{verticalAlign: 'sub'}}>[~Yield, ~Await]</S> <S type="bold" textFont="monospace">{'}'}</S></ListItem>
           </List>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3vh" source={`let array = [1, 2, 3, 4, 5]
+
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`let array = [1, 2, 3, 4, 5]
 
 array.map((number) => { return number % 2 })
 // [ 1, 0, 1, 0, 1 ]
@@ -723,11 +711,11 @@ array.map((number, index) => number + index)
 // [ 1, 3, 5, 7, 9 ]
 
 array.map(number => number / 0)
-// [ Infinity, Infinity, Infinity, Infinity, Infinity ]
+// [ Infinity, Infinity, … ]
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3vh" source={`const doSomething = (options) => {
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`const doSomething = (options) => {
   const awesomeMode = !!options.awesome
   ...
 }
@@ -737,19 +725,14 @@ function doSomething(options) {
   ...
 }`}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            I. Observation
-          </Heading>
-        </Slide>
         <Slide bgColor={colors.SECONDARY_BG}>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT} textSize="4rem">An <S type="italic">ArrowFunction</S> does not define local bindings for <S type="none" textFont="monospace">arguments</S>, <S type="none" textFont="monospace">super</S>, <S type="none" textFont="monospace">this</S>, or <S type="none" textFont="monospace">new.target</S>.</Quote>
+            <Quote  textSize="4rem">An <S type="italic">ArrowFunction</S> does not define local bindings for <S type="none" textFont="monospace">arguments</S>, <S type="none" textFont="monospace">super</S>, <S type="none" textFont="monospace">this</S>, or <S type="none" textFont="monospace">new.target</S>.</Quote>
             <Quote textColor={colors.SUBTLE_TEXT} textSize="2rem"><br/>Any reference to <S type="none" textFont="monospace">arguments</S>, <S type="none" textFont="monospace">super</S>, <S type="none" textFont="monospace">this</S>, or <S type="none" textFont="monospace">new.target</S> within an <S type="italic">ArrowFunction</S> must resolve to a binding in a lexically enclosing environment. Typically this will be the Function Environment of an immediately enclosing function.</Quote>
             <Cite><Link href="https://tc39.github.io/ecma262/#sec-arrow-function-definitions-runtime-semantics-evaluation" textColor={colors.LINK_TEXT}>ECMAScript Language Specification, §14.2.16 &ldquo;Runtime Semantics: Evaluation&rdquo;</Link></Cite>
           </BlockQuote>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <CodePane lang="javascript" textSize="3vh" source={`const fibonacci = (n) => {
   if (n === 0 || n === 1) {
     return n
@@ -765,7 +748,7 @@ fibonacci(10)
 // RangeError: Maximum call stack size exceeded
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <CodePane lang="javascript" textSize="3vh" source={`let obj = {
   viaFunction: function () {
     return this.property
@@ -778,16 +761,17 @@ obj.viaFunction()
 obj.viaArrow()
 // undefined
 `}/>
+          <Heading margin="1rem 0 0" textColor={colors.SUBTLE_TEXT}>⚠️ BabelJS</Heading>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3.5vh" source={`const ArrowClass = () => {}
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`const ArrowClass = () => {}
 
 var arrow = new ArrowClass()
 // TypeError: ArrowClass is not a constructor
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3vh" source={`const ArrowClass = () => {}
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="3.5vh" source={`const ArrowClass = () => {}
 
 ArrowClass.prototype.greet = (name) => {
   console.log(\`Hi, $\{name}!\`)
@@ -795,13 +779,13 @@ ArrowClass.prototype.greet = (name) => {
 // TypeError: Cannot set property 'greet' of undefined
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.SECONDARY_BG}>
           <CodePane lang="javascript" textSize="4vh" source={`const generator = *() => {}
 // SyntaxError: Unexpected token *
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3.5vh" source={`const buildOptions = () => { option: true }
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`const buildOptions = () => { option: true }
 buildOptions()
 // undefined
 
@@ -809,8 +793,8 @@ const buildOptions = () => ({ option: true })
 buildOptions()
 // { option: true }`}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3.5vh" source={`function asyncThing(callback) {
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`function asyncThing(callback) {
   let fn = callback || err => { throw err; }
   // SyntaxError: Unexpected token ||
   fn(null)
@@ -822,27 +806,23 @@ function asyncThing(callback) {
 }
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3.5vh" source={`(() => console.log('IIFE 4 LYFE')());
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`(() => console.log('IIFE 4 LYFE')());
 // [Nothing happens.]
+
 (() => { console.log('IIFE 4 LYFE') }());
 // SyntaxError: missing ) after argument list
+
 (() => { console.log('IIFE 4 LYFE') })();
 // IIFE 4 LYFE
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            II. Interpretation
-          </Heading>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Text fit>Arrow functions are concise.</Text>
+          <Text fit bold>That&rsquo;s not the point.</Text>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            III. Application
-          </Heading>
-        </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT} notes="React: ever the poster child for the latest ES features.">
-          <CodePane lang="javascript" textSize="3.5vh" source={`render() {
+        <Slide bgColor={colors.SECONDARY_BG}  notes="React: ever the poster child for the latest ES features.">
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`render() {
   return (
     <ul>
       {this.props.myData.map((item) => {
@@ -853,8 +833,8 @@ function asyncThing(callback) {
 }
 `}/>
         </Slide>
-        <Slide bgColor={colors.SECONDARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <CodePane lang="javascript" textSize="3.5vh" source={`fetch('something')
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`fetch('something')
   .then(response => response.json())
   .then(body => body.data[0].attributes.title)
   .then(function print(title) {
@@ -862,20 +842,43 @@ function asyncThing(callback) {
   })
 `}/>
         </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <Heading textColor={colors.BRAND_TEXT}>ESLint 🙌</Heading>
+          <Text fit margin="2rem 0"><Code>"arrow-body-style": "never"</Code></Text>
+          <Text fit margin="2rem 0"><Code>"arrow-parens": "always"</Code></Text>
+          <Text fit margin="2rem 0"><Code>(x) => $expr(x)</Code></Text>
+        </Slide>
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <Heading textColor={colors.BRAND_TEXT} size={2}>More dogma</Heading>
+          <List style={{listStyle: 'disc'}}>
+            <ListItem textSize="3rem">No function declarations</ListItem>
+            <ListItem textSize="3rem">Always use parentheses</ListItem>
+            <ListItem textSize="3rem">Never use parentheses</ListItem>
+            <ListItem textSize="3rem">Always use <Code>===</Code></ListItem>
+            <ListItem textSize="3rem">Don’t use generators</ListItem>
+            <ListItem textSize="3rem">Capers ruin everything</ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <Heading textColor={colors.BRAND_TEXT} size={2}>Why?</Heading>
+          <List style={{listStyle: 'disc'}}>
+            <ListItem textSize="3rem">&ldquo;Syntactic sugar <S type="none" textColor={colors.JOKE_TEXT}>(that I like)</S>&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;Easier <S type="none" textColor={colors.JOKE_TEXT}>(for me)</S> to reason about&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;Because <S type="none" textColor={colors.JOKE_TEXT}>[person]</S> says so&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;Less visual clutter <S type="none" textColor={colors.JOKE_TEXT}>(on my 60" iMac)</S>&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;More concise <S type="none" textColor={colors.JOKE_TEXT}>(at 80 characters)</S>&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;<S type="none" textColor={colors.JOKE_TEXT}>[My favorite feature]</S> is the future&rdquo;</ListItem>
+          </List>
+        </Slide>
         <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
-            <Code bgColor="transparent" margin="0" padding="0" textColor={colors.PRIMARY_TEXT}>Reflect</Code>
+            <Code bgColor="transparent" margin="0" padding="0">Reflect</Code>
           </Heading>
           <Heading fit textColor={colors.JOKE_TEXT}>
             Thinking inside the box
           </Heading>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            I. Observation
-          </Heading>
-        </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <Table className="center" style={{ borderSpacing: '4vh 1vh' }}>
             <TableBody>
               <TableRow textAlign="left">
@@ -933,34 +936,36 @@ function asyncThing(callback) {
             </TableBody>
           </Table>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>✔︎ Proxy</Heading>
-          <Heading fit>✘ Reflect</Heading>
-          <List className="center" style={{ listStyle: 'none' }} textColor={colors.INVISIBLE_TEXT}>
-            <ListItem>✔︎ Functions w/o <S type="none" textFont="monospace">this</S></ListItem>
-            <ListItem>✔︎ Proxy</ListItem>
-            <ListItem>✔︎ Block scoping</ListItem>
-            <ListItem>✔︎ Default parameters</ListItem>
-            <ListItem>✔︎ Rest / Spread</ListItem>
-            <ListItem>✔︎ Shorthands</ListItem>
-            <ListItem>✔︎ Destructuring</ListItem>
-            <ListItem>✔︎ Symbols</ListItem>
-            <ListItem>✱ Generators</ListItem>
-            <ListItem>✱ Modules</ListItem>
-            <ListItem><S type="strikethrough">✘ Promises</S></ListItem>
-            <ListItem><S type="strikethrough">✘ Reflect</S></ListItem>
-          </List>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <div className="center">
+            <Heading textAlign="left">✔︎ Proxy</Heading>
+            <Heading textAlign="left">✘ Reflect</Heading>
+            <List>
+              <ListItem>✔︎ Functions w/o <S type="none" textFont="monospace">this</S></ListItem>
+              <ListItem>✔︎ Block scoping</ListItem>
+              <ListItem>✔︎ Default parameters</ListItem>
+              <ListItem>✔︎ Rest / Spread</ListItem>
+              <ListItem>✔︎ Shorthands</ListItem>
+              <ListItem>✔︎ Destructuring</ListItem>
+              <ListItem>✔︎ Symbols</ListItem>
+              <ListItem>✱ Generators</ListItem>
+              <ListItem>✱ Modules</ListItem>
+              <ListItem><S type="strikethrough">✘ Promises</S></ListItem>
+            </List>
+          </div>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            II. Interpretation
-          </Heading>
-          <Heading fit margin="8vh 0 0" textColor={colors.JOKE_TEXT}>
-            (This time, with Cultural Context!)
-          </Heading>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <Heading fit>History</Heading>
+          <Heading fit>Culture</Heading>
+          <Heading textSize="100vh" textFont="Baskerville" textColor={colors.INVISIBLE_TEXT} style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}>&amp;</Heading>
         </Slide>
 
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+        <Slide bgColor={colors.TERTIARY_BG}>
           <CodePane lang="javascript" textSize="3.5vh" source={`db = {}
 
 with (db) {
@@ -975,12 +980,23 @@ with (db) {
 `}/>
         </Slide>
 
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
-          <Heading fit>
-            III. Application
-          </Heading>
+        <Slide bgColor={colors.TERTIARY_BG}>
+          <CodePane lang="javascript" textSize="3vh" source={`// bad
+object.hasOwnProperty(key)
+
+// good
+Object.prototype.hasOwnProperty.call(object, key)
+
+// best
+// cache the lookup once, in module scope.
+const has = Object.prototype.hasOwnProperty
+/* or */
+import has from 'has'
+// ...
+has.call(object, key)`}/>
         </Slide>
-        <Slide bgColor={colors.TERTIARY_BG} textColor={colors.PRIMARY_TEXT}>
+
+        <Slide bgColor={colors.TERTIARY_BG}>
           <CodePane lang="javascript" textSize="3.5vh" source={`const db = Object.create(null)
 
 function set(key, value) {
@@ -997,37 +1013,42 @@ function keys() {
 `}/>
         </Slide>
 
-        <Slide bgColor={colors.SECONDARY_BG}>
+        <Slide bgImage={images.airplane} bgDarken={0.7}>
           <BlockQuote>
-            <Quote textColor={colors.PRIMARY_TEXT}>If the next person&rsquo;s comfort is the priority, than you must be consistent, and the only way to be consistent is to have rules.</Quote>
-            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent</Cite>
+            <Quote>If the next person&rsquo;s comfort is the priority, than you must be consistent, and the only way to be consistent is to have rules.</Quote>
+            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image display="inline" height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent</Cite>
           </BlockQuote>
+          <div className="bg-cite-container">
+            <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
+              📸 Chris Barbalis, <Link src="https://unsplash.com/photos/6gWvk3lrFUA" textColor={colors.LINK_TEXT}>Unsplash</Link>
+            </Text>
+          </div>
         </Slide>
 
-        <Slide bgColor={colors.SECONDARY_BG}>
+        <Slide bgImage={images.airplane} bgDarken={0.7}>
           <Heading>Is that your priority?</Heading>
+          <div className="bg-cite-container">
+            <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
+              📸 Chris Barbalis, <Link src="https://unsplash.com/photos/6gWvk3lrFUA" textColor={colors.LINK_TEXT}>Unsplash</Link>
+            </Text>
+          </div>
         </Slide>
 
-        <Slide bgColor={colors.SECONDARY_BG}>
+        <Slide bgImage={images.airplane} bgDarken={0.7}>
           <BlockQuote>
-            <Quote style={{ lineHeight: '4.5rem' }} textColor={colors.PRIMARY_TEXT} textSize="4rem">I want that to be true, but that isn't always true. If I&rsquo;m honest, it&rsquo;s because <S type="italic">I&rsquo;m a selfish and emotional person</S>. Coding is a deeply personal form of expression for me.</Quote>
-            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent (emphasis mine)</Cite>
+            <Quote style={{ lineHeight: '4.5rem' }}  textSize="4rem">I want that to be true, but that isn't always true. If I&rsquo;m honest, it&rsquo;s because <S type="italic">I&rsquo;m a selfish and emotional person</S>. Coding is a deeply personal form of expression for me.</Quote>
+            <Cite textColor={colors.SUBTLE_TEXT}>Fellow <Image display="inline-block" height="1em" src={images.logo_td} style={{ verticalAlign: 'text-bottom' }}/> Agent (emphasis mine)</Cite>
           </BlockQuote>
-        </Slide>
-
-        <Slide bgColor={colors.TERTIARY_BG}>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left">Modules vs. <Code textColor={colors.PRIMARY_TEXT} textSize="10vh">require</Code></Heading>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left"><Code textColor={colors.PRIMARY_TEXT} textSize="10vh">let</Code>/<Code textColor={colors.PRIMARY_TEXT} textSize="10vh">const</Code> vs. <Code textColor={colors.PRIMARY_TEXT} textSize="10vh">var</Code></Heading>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left"><Code textColor={colors.PRIMARY_TEXT} textSize="10vh">async</Code>/<Code textColor={colors.PRIMARY_TEXT} textSize="10vh">await</Code></Heading>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left"><Code textColor={colors.PRIMARY_TEXT} textSize="10vh">class</Code> syntax</Heading>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left">...</Heading>
-          <Heading lineHeight="1.2" textSize="10vh" textAlign="left">Semicolons?</Heading>
+          <div className="bg-cite-container">
+            <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
+              📸 Chris Barbalis, <Link src="https://unsplash.com/photos/6gWvk3lrFUA" textColor={colors.LINK_TEXT}>Unsplash</Link>
+            </Text>
+          </div>
         </Slide>
 
         <Slide bgImage={images.library} bgDarken={0.7}>
-          <Heading fit>Working Agreement</Heading>
-          <Heading fit margin="2vh 0" textColor={colors.BRAND_TEXT}><S type="none" textFont="monospace">CONTRIBUTING</S></Heading>
-          <Heading fit>&ldquo;Style Guide&rdquo;</Heading>
+          <Heading textColor={colors.BRAND_TEXT} fit caps>Big Question</Heading>
+          <Heading>What rules should we use?</Heading>
           <div className="bg-cite-container">
             <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
               📸 Giammarco Boscaro, <Link src="https://unsplash.com/photos/OPzWvgL-upY" textColor={colors.LINK_TEXT}>Unsplash</Link>
@@ -1036,10 +1057,15 @@ function keys() {
         </Slide>
 
         <Slide bgImage={images.library} bgDarken={0.7}>
-          <Heading textAlign="left">Rules,</Heading>
-          <Heading textAlign="left">Written by all,</Heading>
-          <Heading textAlign="left">Driven by pragma,</Heading>
-          <Heading textAlign="left">Rooted in context.</Heading>
+          <Heading textAlign="left" size={1} textColor={colors.BRAND_TEXT}>Rules:</Heading>
+          <Heading textAlign="left" size={2}>• Written by all,</Heading>
+          <Heading textAlign="left" size={2}>• Driven by pragma,</Heading>
+          <Heading textAlign="left" size={2}>• Rooted in context.</Heading>
+          <div className="bg-cite-container">
+            <Text className="bg-cite-link" textSize="2rem" textColor={colors.SUBTLE_TEXT}>
+              📸 Giammarco Boscaro, <Link src="https://unsplash.com/photos/OPzWvgL-upY" textColor={colors.LINK_TEXT}>Unsplash</Link>
+            </Text>
+          </div>
         </Slide>
 
         {this.renderWallBreaker('Thanks!', { bgColor: colors.PRIMARY_BG })}

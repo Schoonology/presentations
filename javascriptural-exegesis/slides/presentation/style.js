@@ -1,4 +1,5 @@
 import createTheme from "spectacle/lib/themes/default"
+import prism from './prism'
 
 var backgroundColors = ['primary-bg', 'secondary-bg', 'tertiary-bg']
 var keys = []
@@ -31,6 +32,11 @@ export const colors = {
 }
 
 export const theme = createTheme({
+  // Spectacle core colors
+  primary: '#6eff00',
+  secondary: '#f8f8f8',
+
+  // Extended colors
   'primary-bg': '#303030',
   'secondary-bg': '#2040a0',
   'tertiary-bg': '#6020a0',
@@ -49,5 +55,12 @@ export const theme = createTheme({
   primary: 'Lato',
   monospace: 'monospace'
 })
+
+// Overrides
+theme.screen.prism.dark = prism
+theme.screen.components.quote.color = '#f8f8f8'
+theme.screen.components.code.color = '#f0f0f0'
+theme.screen.components.text.color = '#f8f8f8'
+theme.screen.components.list.listStyle = 'none'
 
 console.log(theme)
