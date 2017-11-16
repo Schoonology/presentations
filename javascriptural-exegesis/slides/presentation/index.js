@@ -677,6 +677,17 @@ fake.missing
             III. Application
           </Heading>
         </Slide>
+        <Slide bgColor={colors.PRIMARY_BG}>
+          <CodePane className="moar-code" lang="javascript" textSize="4vh" source={`doThingAsync()
+.then(function (result) {
+  return Promise.resolve(doSomethingWith(result)))
+}) // Noise
+
+doThingAsync()
+.then(function (result) {
+  return doSomethingWith(result))
+}) // Signal`}/>
+        </Slide>
         <Slide bgColor={colors.SECONDARY_BG}>
           <Heading fit caps>
             Arrow
@@ -849,7 +860,7 @@ function asyncThing(callback) {
           <Text fit margin="2rem 0"><Code>(x) => $expr(x)</Code></Text>
         </Slide>
         <Slide bgColor={colors.PRIMARY_BG}>
-          <Heading textColor={colors.BRAND_TEXT} size={2}>More dogma</Heading>
+          <Heading textColor={colors.BRAND_TEXT} size={2}>Dogmatic rules</Heading>
           <List style={{listStyle: 'disc'}}>
             <ListItem textSize="3rem">No function declarations</ListItem>
             <ListItem textSize="3rem">Always use parentheses</ListItem>
@@ -860,23 +871,34 @@ function asyncThing(callback) {
           </List>
         </Slide>
         <Slide bgColor={colors.PRIMARY_BG}>
-          <Heading textColor={colors.BRAND_TEXT} size={2}>Why?</Heading>
+          <Heading textColor={colors.BRAND_TEXT} size={2}>Eisegetical reasons</Heading>
           <List style={{listStyle: 'disc'}}>
             <ListItem textSize="3rem">&ldquo;Syntactic sugar <S type="none" textColor={colors.JOKE_TEXT}>(that I like)</S>&rdquo;</ListItem>
-            <ListItem textSize="3rem">&ldquo;Easier <S type="none" textColor={colors.JOKE_TEXT}>(for me)</S> to reason about&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;Easier <S type="none" textColor={colors.JOKE_TEXT}>(for me)</S> to &lsquo;reason about&rsquo;&rdquo;</ListItem>
             <ListItem textSize="3rem">&ldquo;Because <S type="none" textColor={colors.JOKE_TEXT}>[person]</S> says so&rdquo;</ListItem>
             <ListItem textSize="3rem">&ldquo;Less visual clutter <S type="none" textColor={colors.JOKE_TEXT}>(on my 60" iMac)</S>&rdquo;</ListItem>
             <ListItem textSize="3rem">&ldquo;More concise <S type="none" textColor={colors.JOKE_TEXT}>(at 80 characters)</S>&rdquo;</ListItem>
-            <ListItem textSize="3rem">&ldquo;<S type="none" textColor={colors.JOKE_TEXT}>[My favorite feature]</S> is the future&rdquo;</ListItem>
+            <ListItem textSize="3rem">&ldquo;<S type="none" textColor={colors.JOKE_TEXT}>[My favorite feature]</S> is THE FUTURE 🚀&rdquo;</ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor={colors.SECONDARY_BG}>
+          <List className="moar-code" style={{listStyle: 'disc'}}>
+            <ListItem textSize="3rem">Always <Code>.catch()</Code> Promises <S type="italic">in Node</S>.</ListItem>
+            <Text margin="0 0 0 1em" textColor={colors.SUBTLE_TEXT} textSize="3rem">Starting with Node v10, unhandled Promises will crash the server.</Text>
+            <ListItem textSize="3rem"><S type="italic">Prefer</S> named functions.</ListItem>
+            <Text margin="0 0 0 1em" textColor={colors.SUBTLE_TEXT} textSize="3rem">Without names, stack traces are less useful during debugging.</Text>
+            <ListItem textSize="3rem">Keep cream cheese <S type="italic">to a minimum</S>.</ListItem>
+            <Text margin="0 0 0 1em" textColor={colors.SUBTLE_TEXT} textSize="3rem">Excessive cream cheese glops onto the eater's shirt, which may increase the stress of their day.</Text>
           </List>
         </Slide>
         <Slide bgColor={colors.TERTIARY_BG}>
           <Heading fit>
-            <Code bgColor="transparent" margin="0" padding="0">Reflect</Code>
+            Reflect
           </Heading>
-          <Heading fit textColor={colors.JOKE_TEXT}>
-            Thinking inside the box
-          </Heading>
+          <Text textColor={colors.SUBTLE_TEXT}>
+            This is now a talk about how to think about code that inspects other code:<br/>meta-meta-metaprogramming.
+          </Text>
+          <Text>You're welcome.</Text>
         </Slide>
         <Slide bgColor={colors.TERTIARY_BG}>
           <Table className="center" style={{ borderSpacing: '4vh 1vh' }}>
