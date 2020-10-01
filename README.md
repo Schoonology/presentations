@@ -15,6 +15,7 @@ A set of talks and the tools that generated them, all sprung out of the recesses
 - Open JSON API
 - JavaScriptural Exegesis
 - Jazz Hands &amp; Mute Buttons
+- Game Engine Encounters in the Backcountry
 <!-- next_talk -->
 
 ## Technology
