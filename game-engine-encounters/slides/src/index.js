@@ -81,7 +81,9 @@ const styles = {
 
 const Presentation = () => (
   <Deck theme={theme} template={template} transitionEffect="none">
-    <Slide backgroundImage={`url(${images.hello})`} />
+    <Slide backgroundImage={`url(${images.hello})`}>
+      <FullScreen/>
+    </Slide>
     <Slide backgroundColor="secondary">
       <Center>
         <Heading color="tertiary">🚨 Warning 🚨</Heading>
