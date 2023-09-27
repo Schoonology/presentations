@@ -1,31 +1,29 @@
+import fitty from 'fitty';
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import fitty from 'fitty';
-
 import {
-  FlexBox,
-  Heading,
-  SpectacleLogo,
-  UnorderedList,
-  CodeSpan,
-  OrderedList,
-  ListItem,
-  FullScreen,
-  Progress,
   Appear,
-  Stepper,
-  Slide,
-  SlideLayout,
-  Deck,
-  Text,
-  Grid,
   Box,
-  Image,
   CodePane,
+  CodeSpan,
+  Deck,
+  FlexBox,
+  FullScreen,
+  Grid,
+  Heading,
+  Image,
+  ListItem,
   MarkdownSlide,
   MarkdownSlideSet,
-  Notes
+  Notes,
+  OrderedList,
+  Progress,
+  Slide,
+  SlideLayout,
+  Text,
+  UnorderedList
 } from 'spectacle';
+import { GameReplaySlide } from './game_replay';
 
 const formidableLogo =
   'https://avatars2.githubusercontent.com/u/5078602?s=280&v=4';
@@ -34,11 +32,11 @@ const formidableLogo =
 const theme = {
   fonts: {
     header: 'Metropolis, sans-serif',
-    text: 'Metropolis, sans-serif'
+    text: 'Metropolis, sans-serif',
   },
   fontWeights: {
-    header: 100
-  }
+    header: 100,
+  },
 };
 // SPECTACLE_CLI_THEME_END
 
@@ -48,8 +46,7 @@ const template = () => (
     justifyContent="space-between"
     position="absolute"
     bottom={0}
-    width={1}
-  >
+    width={1}>
     <Box padding="0 1em">
       <FullScreen />
     </Box>
@@ -77,30 +74,37 @@ const SlideFragments = () => (
   </>
 );
 
-function FitHeading({ children, ...props }) {
+function FitHeading({children, ...props}) {
   const ref = useRef();
 
   useEffect(() => {
     fitty(ref.current);
   }, [ref.current]);
 
-  return <Heading ref={ref} {...props}>{children}</Heading>
+  return (
+    <Heading ref={ref} {...props}>
+      {children}
+    </Heading>
+  );
 }
 
 const Presentation = () => (
   <Deck theme={theme} template={template}>
     <SlideLayout.TwoColumn
-      left={<FlexBox height="100%" flexDirection="column">
-        <FitHeading fontWeight={900}>We&lsquo;re</FitHeading>
-        <FitHeading fontWeight={900}>Snaking It</FitHeading>
-        <FitHeading fontWeight={900}>Live!</FitHeading>
-      </FlexBox>}
-      right={<FlexBox height="100%" flexDirection="column">
-        <FitHeading fontWeight={900}>We&lsquo;re</FitHeading>
-        <FitHeading fontWeight={900}>Snaking It</FitHeading>
-        <FitHeading fontWeight={900}>Live!</FitHeading>
-      </FlexBox>}>
-
+      left={
+        <FlexBox height="100%" flexDirection="column">
+          <FitHeading fontWeight={900}>We&lsquo;re</FitHeading>
+          <FitHeading fontWeight={900}>Snaking It</FitHeading>
+          <FitHeading fontWeight={900}>Live!</FitHeading>
+        </FlexBox>
+      }
+      right={
+        <FlexBox height="100%" flexDirection="column">
+          <FitHeading fontWeight={900}>We&lsquo;re</FitHeading>
+          <FitHeading fontWeight={900}>Snaking It</FitHeading>
+          <FitHeading fontWeight={900}>Live!</FitHeading>
+        </FlexBox>
+      }>
       <Notes>
         Spectacle supports notes per slide.
         <ol>
@@ -109,6 +113,7 @@ const Presentation = () => (
         </ol>
       </Notes>
     </SlideLayout.TwoColumn>
+    <GameReplaySlide game_id="1234-replay" />
     <Slide>
       <FlexBox height="100%" flexDirection="column">
         <Heading margin="0px" fontSize="150px">
@@ -126,21 +131,20 @@ const Presentation = () => (
       transition={{
         from: {
           transform: 'scale(0.5) rotate(45deg)',
-          opacity: 0
+          opacity: 0,
         },
         enter: {
           transform: 'scale(1) rotate(0)',
-          opacity: 1
+          opacity: 1,
         },
         leave: {
           transform: 'scale(0.2) rotate(315deg)',
-          opacity: 0
-        }
+          opacity: 0,
+        },
       }}
       backgroundColor="tertiary"
       backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/main/src/beau.jpg?raw=true)"
-      backgroundOpacity={0.5}
-    >
+      backgroundOpacity={0.5}>
       <Heading>Custom Backgrounds</Heading>
       <UnorderedList>
         <ListItem>
@@ -199,8 +203,7 @@ const Presentation = () => (
         gridTemplateRows="1fr 1fr 1fr"
         alignItems="center"
         justifyContent="center"
-        gridRowGap={1}
-      >
+        gridRowGap={1}>
         {Array(9)
           .fill('')
           .map((_, index) => (
@@ -237,7 +240,7 @@ const Presentation = () => (
         <Heading>This is a slide embedded in a div</Heading>
       </Slide>
     </div>
-    <MarkdownSlide componentProps={{ color: 'yellow' }}>
+    <MarkdownSlide componentProps={{color: 'yellow'}}>
       {`
         # This is a Markdown Slide
 
@@ -261,8 +264,7 @@ const Presentation = () => (
         flex={1}
         gridTemplateColumns="50% 50%"
         gridTemplateRows="50% 50%"
-        height="100%"
-      >
+        height="100%">
         <FlexBox alignItems="center" justifyContent="center">
           <Heading>This is a 4x4 Grid</Heading>
         </FlexBox>
