@@ -37,7 +37,7 @@ module.exports = {
       },
       // `.md` files are processed as pure text.
       {
-        test: /\.md$/,
+        test: /\.(md|txt)$/,
         use: [require.resolve('raw-loader')]
       },
       // `.mdx` files go through babel and our mdx transforming loader.
@@ -46,7 +46,7 @@ module.exports = {
         use: [babelLoader, require.resolve('spectacle-mdx-loader')]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/,
         use: [require.resolve('file-loader')]
       }
     ]

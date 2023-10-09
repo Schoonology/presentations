@@ -5,12 +5,14 @@ const ROOT_URL = 'http://localhost:5173';
 const OPTIONS = [
   'engine=local',
   'showCoords=true',
-  'showScoreboard=false',
+  // 'showScoreboard=false',
 ].join('&');
 
-export function GameReplay({game_id, title}) {
-  const replay_url = `${ROOT_URL}/?game=${game_id}&${OPTIONS}&${
-    title ? 'title=' + title : ''
+export function GameReplay({fps, game_id, title}) {
+  const replay_url = `${ROOT_URL}/?game=${game_id}&${OPTIONS}${
+    title ? '&title=' + title : ''
+  }${
+    fps ? '&fps=' + fps : ''
   }`;
 
   return (
@@ -25,10 +27,10 @@ export function GameReplay({game_id, title}) {
   );
 }
 
-export function GameReplaySlide({game_id, title}) {
+export function GameReplaySlide({fps, game_id, title}) {
   return (
     <Slide>
-      <GameReplay game_id={game_id} title={title} />
+      <GameReplay fps={fps} game_id={game_id} title={title} />
     </Slide>
   );
 }
