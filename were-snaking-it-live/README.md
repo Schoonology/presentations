@@ -1,44 +1,24 @@
-Spectacle Boilerplate
-=====================
+# We're Snaking It Live!
 
-## Contents
+The info here is split in two:
 
-- [Reference](#reference)
-- [Getting Started](#getting-started)
-- [Tutorial](#tutorial)
-- [Build & Deployment](#build-deployment)
+- A [Spectacle](https://github.com/FormidableLabs/spectacle/blob/main/README.md)-based slide deck.
+- A [SCRIPT.md](https://github.com/Schoonology/presentations/blob/master/were-snaking-it-live/SCRIPT.md) file with _roughly_ what was _said_ on stage. I go off-script regularly—and there are some extraneous bits—but this will give you the idea.
 
-## Reference
+## Running the slides
 
-The Spectacle core API is available in the [Spectacle Docs](https://github.com/FormidableLabs/spectacle/blob/main/README.md).
+At this point it should be as easy as:
 
-## Getting Started
-
-1. Install dependencies
-
-    ```sh
-    $ yarn install
-    ```
-
-2. Start the webpack server. The server will run at the default `webpack-dev-server` address, [`localhost:8080`](http://localhost:8080).
-
-    ```sh
-    $ yarn start
-
-    # Or with a specific port!
-    $ yarn start --port=3000
-    ```
-
-## Tutorial
-
-If want you a step-by-step guide for getting started with Spectacle, a basic tutorial is available [here](https://github.com/FormidableLabs/spectacle/blob/main/docs/tutorial.md).
-
-## Build & Deployment
-
-Building the dist version of the project is as easy as running
-
-```sh
-$ yarn build
+```
+npm install
+npm start
 ```
 
-From there you can deploy the built slides  in `dist` to services like Netlify, Surge, etc!
+## Events
+
+This talk was given at:
+
+- LibertyJS 2023
+- CharmCityJS October 2023
+
+Where should I give it next? Send me a line and let me know.
