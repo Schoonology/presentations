@@ -1,0 +1,39 @@
+import type { Board, Point } from "../types";
+import { hash, isSafe, nudgePoint } from "./shared";
+
+/**
+ * Given a server-provided `board` and a `space` on that board, return the
+ * total number of safe spaces attached to it. If the space itself is unsafe,
+ * this function returns 0.
+ */
+export function floodFill(
+  board: Board,
+  space: Point,
+  // For future use... 🙉🙈🙊
+  calculateScore: (space: Point) => number = () => 1,
+  // For recursion: What spaces have we seen already?
+  seen = new Set<ReturnType<typeof hash>>()
+): number {
+  // If we've already seen this, bounce.
+  if (seen.has(hash(space))) {
+    return 0;
+  }
+
+  // If this space isn't safe (e.g. it has a snake, it is a wall), bounce.
+  else if (!isSafe(board, space)) {
+    return 0;
+  }
+
+  // Otherwise, score this new, safe space.
+  const score = calculateScore(space);
+
+  seen.add(hash(space));
+
+  return (
+    score +
+    floodFill(board, nudgePoint(space, "left"), calculateScore, seen) +
+    floodFill(board, nudgePoint(space, "right"), calculateScore, seen) +
+    floodFill(board, nudgePoint(space, "up"), calculateScore, seen) +
+    floodFill(board, nudgePoint(space, "down"), calculateScore, seen)
+  );
+}

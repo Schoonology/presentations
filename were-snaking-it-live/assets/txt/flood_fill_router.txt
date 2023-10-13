@@ -1,0 +1,12 @@
+server.post("/move", (req: MoveRequest, res: MoveResponse) => {
+  const options = {
+    left: floodFill(req.body.board, nudgePoint(req.body.you.head, "left")),
+    right: floodFill(req.body.board, nudgePoint(req.body.you.head, "right")),
+    up: floodFill(req.body.board, nudgePoint(req.body.you.head, "up")),
+    down: floodFill(req.body.board, nudgePoint(req.body.you.head, "down")),
+  };
+
+  res.send({
+    move: pickBest(options),
+  });
+});

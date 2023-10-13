@@ -1,0 +1,41 @@
+// Now the height map was formless and `undefined`,
+// darkness was over the surface of the deep,
+// and the Spirit of Dog was hovering over the waters.
+for (let x = 0; x < board.width; x++) {
+    for (let y = 0; y < board.height; y++) {
+    // And Dog said, “Let 💯s appear.” And it was so.
+    heights.set(hash({ x, y }), 100);
+    }
+}
+
+// And Dog said, “Let the board produce the foods,
+board.food.forEach((food) => {
+    add(food, -(100 - (you?.health ?? 0)));
+});
+// the snakes that move along the ground,
+board.snakes.forEach((snake) => {
+    snake.body.forEach((segment) => {
+    heights.set(hash(segment), INSTANT_DEATH);
+    });
+});
+// and the wild hazards, each according to its kind.” And it was so.
+board.hazards.forEach((hazard) => {
+    add(hazard, ruleset?.settings.hazardDamagePerTurn ?? 15);
+});
+
+// Bump out "scary" things: walls, other heads. (No corny joke this time.)
+for (let x = 0; x < board.width; x++) {
+    add({ x, y: 0 }, 1);
+    add({ x, y: board.height - 1 }, 1);
+}
+for (let y = 0; y < board.height; y++) {
+    add({ x: 0, y }, 1);
+    add({ x: board.height - 1, y }, 1);
+}
+board.snakes.forEach((snake) => {
+    if (you?.id !== snake.id) {
+    safeNeighbors(board, snake.head).forEach((space) => {
+        add(space, INSTANT_DEATH);
+    });
+    }
+});

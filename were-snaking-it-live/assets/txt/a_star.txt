@@ -1,0 +1,75 @@
+/**
+ * Given a `board`, a `start` space, and an `end` space, uses A* to find the
+ * fastest path, returning the full Array of Points from the first to the last.
+ */
+export function aStar(
+  board: Board,
+  start: Point,
+  end: Point,
+  // For future use... 🙉🙈🙊
+  calculateScore: (space: Point) => number = () => 1
+): Array<Point> {
+  console.log("Start:", start);
+  console.log("End:", end);
+
+  // G scores: the best-known score to this point from the start.
+  const gScores: Map<ReturnType<typeof hash>, number> = new Map();
+
+  // What was the _previous_ space for our G score?
+  const cameFrom: Map<ReturnType<typeof hash>, Point> = new Map();
+
+  // What spaces do we have left to consider?
+  const openSet: PriorityQueue<Point> = new PriorityQueue();
+  const inOpenSet: Map<ReturnType<typeof hash>, boolean> = new Map();
+
+  // Add our start space to get us started.
+  openSet.push(start, 0);
+  gScores.set(hash(start), 0);
+  inOpenSet.set(hash(start), true);
+
+  // Reminder: You can't == or even === two Objects.
+  const endHash = hash(end);
+
+  // While we still have a node in the open set...
+  let currentSpace: Point | null;
+  while ((currentSpace = openSet.pop())) {
+    const currentHash = hash(currentSpace);
+
+    inOpenSet.set(currentHash, false);
+
+    // Is this our end space? Did we make it?!?
+    if (currentHash === endHash) {
+      // If so, return our A*-optimized path.
+      return buildPath(cameFrom, end);
+    }
+
+    const currentScore = gScores.get(currentHash) ?? DEFAULT_G_SCORE;
+
+    console.log(currentSpace, currentScore);
+
+    // Battlesnake NextDoor: Tell me about your neighbors...
+    safeNeighbors(board, currentSpace).forEach((neighbor) => {
+      const neighborHash = hash(neighbor);
+      const proposedScore = currentScore + calculateScore(neighbor);
+      const previousScore = gScores.get(neighborHash) ?? DEFAULT_G_SCORE;
+
+      console.log(neighbor, proposedScore, previousScore);
+
+      // Is this an improvement?
+      if (proposedScore < previousScore) {
+        // If so, keep it! We like improvements.
+        gScores.set(neighborHash, proposedScore);
+        cameFrom.set(neighborHash, currentSpace!);
+
+        if (!inOpenSet.get(neighborHash)) {
+          // Even though we know the score, we still use H to sort our open set.
+          openSet.push(neighbor, proposedScore + heuristic(neighbor, end));
+          inOpenSet.set(neighborHash, true);
+        }
+      }
+    });
+  }
+
+  // We didn't find a path.
+  return [];
+}

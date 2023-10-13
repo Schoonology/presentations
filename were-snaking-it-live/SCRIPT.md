@@ -1,90 +1,109 @@
 ## Talk introduction: 2.5–3 minutes
 
-Give me a thumbs up if you can hear me. Excellent.
+Clap once if you can hear me. Clap twice if you're in the back row.
 
-Ladies, gentlemen, and those that do not adhere to a Victorian sense of either taxonomy or decorum:
+Welcome! If you, like most people, didn't read the talk description, you would be excused for expecting this talk—_We're Snakin' It Live!_—to be about my brand new S.N.A.K.E. principle of software development.
 
-Welcome! If you, like most people, didn't read the talk description, you would be excused for expecting this talk to be about my brand new S.N.A.K.E. principle of software development:
-
-Single responsibility
-No surprises
-Asynchronous
-Komposable
-Entirely written in JavaScript
-
-Or *maybe* you’re here thinking this talk is going to introduce snakeJS, a new Broccoli plugin that makes JavaScript whitespace sensitive.
+Or *maybe* you’re here thinking this talk is going to introduce snakeJS, a new Broccoli plugin that makes JavaScript whitespace sensitive. Like Python? Get it?
 
 Or maybe this is *finally* my chance to objectively prove that what your code *really* needs is snake *case*! And tabs! And Hungarian Notation.
 
 Sadly, it’s not that talk.
 
-*This* talk will be about AI—minus the marketing, hype, and groaning—real JavaScript that miraculously manages to be fun to write; and "jokes", where we will use all that groaning we removed from the AI parts of the talk.
+*This* talk will be about AI—minus the marketing, hype, and all that groaning—real JavaScript that miraculously manages to be fun to write; and "jokes", where we will reintroduce all that groaning we removed from the AI parts.
 
 To do all of that, we’re going to play a video game.
 
-Who here has *played* Snake, or otherwise knows the rules?
-Who here played Snake on one of these? (Awesome. I’ve found my tribe.)
-Who here played *this* version? (Whoa. Come say hi.)
+- Who here has *played* a game of Snake, or otherwise knows the rules?
+- Who here played Snake on one of these, a Nokia 6110? (Awesome. I’ve found my tribe.)
+- Who here played *this* version? (Whoa. Come say hi.)
 
 For the uninitiated, here are the rules:
-- Each :snap: game :snap: of Snake :snap: is comprised of a series of turns.
-- Each turn, your snake moves forward in the direction it's facing.
-- Pressing an arrow key changes the direction the snake is facing to match: pressing "Right" makes the snake face right, not turn right.
-- If your snake's head collides with this version's Macguffin—a fruit or a number or what-have-you—it grows in length by one: while the rest of the snake moves forward, the rearmost section duplicates itself.
-- If your snake's head collides with anything else—the walls, another part of your snake—it dies.
-- Your goal is to last as long as possible under these conditions, ostensibly with some manner of score attached.
+- Each :snap: game :snap: of Snake :snap: continues like a ticking clock.
+- Each tick, your snake moves forward in the direction it's facing.
+- Press an arrow key to change the direction of the snake to match: pressing "Right" makes the snake face right, not turn right.
+- If your snake collides with the Macguffin—a fruit or a number or what-have-you—it grows.
+- If your snake collides with anything else—the walls, another part of your snake—it dies.
+- Your goal is to last as long as possible under these conditions.
 
-👏🏻 Give me another thumbs up if you're still with me. Yes, this will be a thing. If you're ever confused, though, do two things: 1) don't react, so I know I've lost you, and 2) please ask me later. I'd be delighted to clarify anything that might still be unclear after 30 minutes of *this*. [Gestures at self.]
+👏🏻 Clap once if you're still with me. Yes, this will be a thing. You'll stay awake, and anyone in the hallway will think my talk is _so good_ that you can't keep from clapping.
 
-Part of that confusion might be that this talk is *ruthlessly* cut down from a longer, live-r version that is both a work in progress and a conversion from Rust. Thank you all for being my Guinea Pigs, but the same rules apply.
+If you're ever confused, though, do two things: 1) don't clap, so I know I'm losing all of you, and 2) come ask me later. I'd be delighted to clarify anything that might still be unclear after 40 minutes of *this*. [Gestures at self.]
 
-If this is a JavaScript talk, this is where I start teaching you how to make your own Snake game, right? We’re going to talk about sockets, rendering, client-server optimistic whizbangery and latency and…?
+If this is a JavaScript talk, this is where I start teaching you how to make your own Snake game, right? We’re going to talk about sockets, rendering, client-server optimistism and latency and…?
 
-No.
+No. This is also not _that_ talk.
 
-Instead we’re going to flip *that* talk inside-out and upside-down, shake out its lunch money, and write some code that *plays* Snake. To be specific, we’re going to make a Battlesnake.
+> And there’s no secret URL where I’ve already written that game, and you could be playing Snake against each other instead of listening to me. So don’t go looking *there* for it.
+
+Instead we’re going to flip *that* talk inside-out and upside-down, shake out its lunch money, and write some code that *plays* Snake. We’re going to make a Battlesnake.
 
 ## Personal introduction: 1.5 minutes
 
-Though if you'll excuse me, I've already skipped the worst part: the introduction. Who am I? Where do I exchange my time and talents for money? Can you work there, too? Should you *care*?
+Though if you'll excuse me, I've already skipped the worst part of my talks: the introduction!
 
-In order, that's:
-- Schoon
-- Squad
-- Maybe
-- Probably not.
+Hi. My name is Michael Schoonmaker, but nobody calls me that because it's too long, too formal, and there are too many other middle-aged white dudes named "Michael" running around. Instead, folks call me Schoon.
 
-Hi. My name is actually Michael Schoonmaker, but nobody calls me that because it's too long, too formal, and there are too many other middle-aged white dudes named "Michael" running around. Instead, folks call me Schoon.
+I have the honor of being the CTO of a startup called Squad, working on a React Native app that helps people create and deepen friendships. We're launching a new partnership with the NBA this fall. If any part of that sounds interesting, I will likely be hiring for one more by the end of the year. Come find me. I promise I'm this likeable—and funny—in person.
 
-I have the honor of being the CTO of a startup called Squad, working on a React Native app that helps people make, keep, and grow friendships. We're launching a new offering for NBA fans, and I will likely be hiring for one more later this year. If you're interested, come find me.
+My interest in today's subject comes from making games. These days I make games under the name Legacy of Play, but more importantly I help _other people_ make games as an advisor to UNPUB, the Unpublished Games Network, a nonprofit focused on supporting indie game designers of all stripes.
 
-I also do make games, but away from a screen. I make board games under the name Legacy of Play, and moreover I help _other folks_ make games as an advisor to UNPUB, a nonprofit focused on supporting indie game designers of all stripes.
+I grew up in Pennsylvania and I _love_ Philadelphia. After 4 cross-country moves; myself, my beautiful wife, our two amazing kids and our dog now live as close to Philly as ever: 1 hour's train away in Baltimore, Maryland. (Go O's?)
 
-Pertinent to this talk I *also* happen to be in the 28th percentile of all Battlesnake players, but I don't like to brag about it. [That's not 28th ranked. That 28th _percentile._ That's not good.]
+Pertinent to this talk I *also* happen to be in the 28th percentile of all Battlesnake players, but I don't like to brag about it.
 
 ## Battlesnake introduction: 3.5 minutes
 
-What is this "Battlesnake" thing, then? Battlesnake is an implementation of multiplayer Snake where, as they say, "code is your controller". This makes sense from a game design perspective, because human-controlled multiplayer Snake would either slow to a crawl or be a chaotic mess, both for reasons outside the scope of this talk.
+What is this "Battlesnake" thing, then?
 
-Using code, though, sidesteps this issue entirely: players are competing to create the best Snake-playing AI, not to be the best at playing Snake themselves.
+Battlesnake is live, multiplayer Snake. The rules are the mostly same, and the goal is mostly the same, with a _few_ additions:
 
-How does that work? How do you "play" Battlesnake?
-
-Much like Spiderman late on the way to his second shift as a bartender, each Snake runs as a web server. The Battlesnake service sends four requests, and your server's response defines what your Snake does:
-
-- The first, Info, defines the appearance of your Snake. Your response—a 200 OK with a JSON body—defines the head, the tail, the color, and who's to blame for creating this monster.
-- The second, Start, notifies your Snake they've been entered into a new game, along with the rules of that game. No response aside from a 200 OK needed.
-- The fourth, End, notifies your Snake that the game is over. Again: no response other than a courtesy 200 OK.
-- The third, Move, provides the updated board state, and should be responded to with an absolute direction: UP, DOWN, LEFT, or RIGHT.
-
-The rules change slightly, too: on top of the normal Snake rules...
+Food:
 
 - Each Snake MUST eat something every 100 ticks, or it dies of starvation.
-- Each Snake SHOULD respond within 500ms. If it doesn't, it'll repeat the last Move response it provided.
-- If two Snakes collide head-to-head, the smaller Snake SHALL die. Otherwise—in the case of a tie—both SHALL die.
-- On-screen joke about [IEEE RFC 2119](https://www.rfc-editor.org/rfc/rfc2119)
+- Each tick is 500 milliseconds, so your snake has a little under a minute to live without food.
+- For a standard match, food spawns once every 3 seconds or so on average.
 
-👏🏻👏🏻 Again, thumbs up if this is all clear as mud so far. Amazing.
+Collisions:
+
+- If a Snake hits the usual stuff: walls, itself, it dies.
+- If two Snakes collide head-to-head, the smaller Snake dies.
+- Otherwise—in the case of a tie—both die.
+
+And you can play it right now, at play.battlesnake.com.
+
+Insert a joke about this talk being over, cue laughter—I said cue laughter—and I've bought us all a half-hour more vacation time.
+
+[Sit down.]
+
+Wait, what's that say? "Where... code... is... your..."
+
+Dang it.
+
+Well, I suppose this _is_ a tech conference. And I did promise you JavaScript. So let's write some JavaScript, then, huh?
+
+> You know, I first heard about this Battlesnake game from an _investor_. (I'll keep them anonymous to protect the innocent.) And no matter how much respect I have for that person, they weren't the sort that I was going to take video game recommendations from. Know what I mean?
+>
+> We all have that friend who recommends the movie that gets good after the first hour, or the book that's been out of print for 10 years, or who fires up Zelda: Ocarina of Time every year for their birthday because that's when gaming "peaked".
+>
+> But I wound up wanting to design a game with programming, so after the contemporaries like CodeWars and Screeps, I remembered this dumb Snake game, and I opened up the website. The goal was clear enough: write some code that plays Snake like it's still 1991. Fine.
+>
+> But where's the editor? I don't get it.
+>
+> - Where do I write whatever God-forsaken language they've designed just for this?
+> - Where do I unlock a "turn left" block with some horrific in-game currency and microtransactions?
+
+But I was wrong. This wasn't just some dumb Snake game.
+
+And much like Spiderman, late on the way to his second shift as a bartender, each Snake actually _runs as a web server_. The Battlesnake service sends four requests, and your server's response defines what your Snake does:
+
+> "That was awful. That was your worst one yet." —My wife
+
+- The first, a sort of "Info" route, defines the appearance of your Snake. Your response defines the head, the tail, the color, and who's to blame for creating this offense against nature.
+- The second, Start, notifies your Snake they've been entered into a new game, along with the rules of that game. The third notifies that a game has Ended. Neither expects more of a response than a courtesy 200 OK.
+- The last, Move, is the workhorse: you get an updated view of the board, and respond with a direction: UP, DOWN, LEFT, or RIGHT.
+
+👏🏻👏🏻 Clap twice if this is all clear as mud so far. Amazing.
 
 Before we go too much further, let's see this in action, huh? This is the Snake we're going to build today, as I Julia Child a snake I put in the oven earlier:
 
@@ -94,46 +113,51 @@ This snake uses the three techniques we're going to learn:
 
 - **Flood filling** to avoid tight spaces
 - **Path finding** to seek out food
-- **Height maps** to understand nuances in the board
+- **Height mapping** to better understand any nuances on the board
 
-Disclaimer: I don't work on Battlesnake. I don't work at DevCycle, the folks who support it. I don't think anyone in either group even knows I exist.
+These are the same techniques used in the live AI of video games. And I know video game developers and web developers love to pretend that the work they do is special and unique to their corner of the programming game, but my career disagrees. And this is a web conference, so you're getting a talk on video game development.
 
-So why am I blathering on about this for _30 whole minutes_?
+One last disclaimer: I don't work on Battlesnake. And I don't work at DevCycle, the folks who support it. Until I warned them I was giving this talk, it's entirely likely no one in either group even knew I existed.
 
-In no uncertain terms, it's become my belief that playing Battlesnake has become the _best_ way to mess around with code; to _play_ with code.
+So why am I the one blathering on about this for _40 whole minutes_?
+
+When I finally did try the game my friend the investor recommended—when I finally fired up NodeJS and wrote a really bad Snake—I quickly realized this has to be the _best_ way to mess around with code; to _play_ with code.
 
 - Want to learn a new web framework? Build a Snake with it.
 - Want to learn how to optimize JavaScript, or any other language? Take that Snake, and try to respond as fast as possible.
-- Want to learn the AI techniques that have rapidly taken over the center of the board, and the programming game along with it? Build _two_ Snakes with different techniques, and have them face each other. You could use a neural network for one, and a generative adversarial network or generative per-trained transformer (this is what GPT stands for) on the other.
-- And something I've learned as an adult and a parent and a musician and a game designer is that if I want to _want to_ do something, the best way to do that is through play.
+- Want to learn the AI techniques that have rapidly taken over the center of the board in our collective "programming game"? Build _two_ Snakes with different techniques, and have them face each other. You could use a neural network for one, and a generative per-trained transformer (this is what GPT stands for) on the other.
 
-You don't even have to publish them or compete on a Leaderboard! The Battlesnake team has provided simple tools to run games locally, and all the demonstrations and replays you'll see today use those same tools.
+That, and it's just fun. The community is kind, and curious, and welcoming, and it's one of the most mutualistic and positive tech spaces on the Internet. I don't understand how this kind of thing still exists.
+
+> The docs could definitely need to be updated, any suggestions are welcome!
+> Thanks for the clarification. 👍
+> I feel a real sense of community
+> Thanks a lot for your time btw, appreciate that
+
+You don't even have to publish them or compete on a Leaderboard! The Battlesnake team provides the tools to run your own games locally, and all the demonstrations and replays you'll see today use those same tools.
 
 Furthermore they're open source. I had to tweak each of those tools—one in Go and one in SvelteKit—to support my talk format, *and you can, too!*
 
 ## First snake: 2 minutes of talking; 7 minutes total?
 
-If it's that easy—and the Playbill says I'm live coding this—we should be able to make a Snake right now, right?
+If I'm going to tell you it's that easy, and the Playbill says I'm live-coding this, we should be able to make a Snake right now, right?
 
 Okay. Let's.
 
-Let's make a Snake that follows those basic rules, even if it's not going to do very well. Our strategy will be simple: You can’t go wrong if you always go RIGHT.
+Let's make a Snake that follows those basic rules, even if it's not going to do very well.
 
-So let's hop over to zsh, and create a folder. We'll create a new Node project, and install Express and Typescript. While we're on the terminal, let's create our `server.ts` file and start a watcher to restart the server as it changes.
+So let's hop over to VS Code. There's a little mise en place here, as I've already created a new Node project and installed Express and Typescript. On the terminal we've got a watcher to restart the server as it changes.
 
-In our `server.ts` file, we'll create our four routes, and respond with the correct results in each case. First things first, though, what should we *call* our snake? Throw something in chat. [Audience participation.]
+In our `server.ts` file, we'll create our four routes, and respond with the correct results in each case.
 
 - GET /
 - POST /start
-- POST /move
 - POST /end
+- POST /move
 
-👏🏻👏🏻👏🏻 [If they don't clap, hold my hand to my ear.]
+Our strategy is known as "You can’t go wrong if you always go RIGHT".
 
-[Have snippets for each route.]
-[Have an npm template for new Snakes?]
-
-To test this we'll run the `battlesnake` CLI, we'll put our new Snake in an empty room all by itself with no food, and watch it die.
+To test this we'll use this `run` script to run the `battlesnake` CLI. We'll put our new Snake in an empty room all by itself with no food, and watch it die.
 
 Success!
 
@@ -141,7 +165,7 @@ Back in our slides, we can see what happened. Sure enough, the Snake always went
 
 Double success!
 
-👏🏻👏🏻👏🏻 [If they don't clap, hold my hand to my ear.]
+👏🏻 [If they don't clap, hold my hand to my ear.]
 
 ## Graphs
 
@@ -175,7 +199,7 @@ If we let this run, you'll see that the snake completely avoids both the walls a
 
 [Replay]
 
-👏🏻👏🏻👏🏻
+👏🏻
 
 ## A* to find food
 
@@ -185,30 +209,30 @@ How do we find food? Real snakes may have an incredible sense of smell, but our 
 
 Fortunately, like taking surfing lessons in a banana suit, we're told exactly where the food sits on the board. So how do we _use_ that knowledge to make our Snake actually eat it?
 
-Because the first step of solving any programming problem is knowing what to Google (or what to type into SlitherGPT), the domain of problem we're talking about is called "path finding", or "pathing" for short.
+Because the first step of solving any programming problem is knowing what to Google (or what to ask Slither-GPT), the domain of problem we're talking about is called "path finding".
 
 We're going to use a variant of Dijkstra's algorithm for this, called A*. It's called that because [computer scientists] are *famously* good at naming things.
 
 What makes A-star a little more complicated than flood filling is all the terminology and bookkeeping it uses, so let's start there:
 
-- As we go, we'll be "scoring" spaces. Score is an abstract term here, but it really means "how hard is it to get to this space from where we started"? We're only really worried about distance right now: each space we have to move is 1 more "point" in the score.
-- The first step of that is to use a "heuristic function", [math-hippie-]speak for "we're going to guess".
-- We'll keep track of the best-known score: called[ G be]cause [mathematicians] are secretly jealous of the English department and all their fancy-pants _letters_ and stuff. We'll keep track of this "G score" for every space on the grid—Or, if you both remember and prefer the technically correct names, nodes in our graph—along with the _previous_ space we used to accomplish that score.
-- Finally the "open set" is a [priority queue] of all the spaces we're actually interested in. As we go along, we want to consider the _next, lowest_ score; the next space that we think would be the easiest to get to from where we started. We'll [add ]
+- As we go, we'll be "scoring" spaces. Score is an abstract term here, but it really means "how hard is it to get to or from this space"? We're only really worried about distance right now: each space we have to move is 1 more "point" in the score.
+- The first step of that is to use a "heuristic function", mathematician-speak for "we're going to guess".
+- We'll keep track of the best-known score—called G for some reason—for every space on the grid—Or, if you both remember and prefer the technically correct names, nodes in our graph—along with the _previous_ space we used to accomplish that score.
+- Finally the "open set" is a priority queue of all the spaces we're still interested in. As we go along, we want to consider the _next, lowest_ score; the next space from which we think it would be the easiest to get to the exit.
 
 👏🏻👏🏻👏🏻
 
-The algorithm, then, much like some thrilling trip to the DMV, comes down to filling out these forms.
+The algorithm, then, like buying your very own Barbie Dream House, comes down to filling out all these forms.
 
 [Coding:]
 
 - At every step, we want to look at the lowest-scored space in our open set.
-- If that space is the space we're looking to path to, we can build that path out of those "previous spaces".
+- If that space is the space we're looking to path to, we're done! Build that path out of those "previous spaces", and get outta here.
 - If it's _not_ our goal, we need to open up Pathfinding NextDoor and ask it about its neighbors.
-- We score the journey from our current space to the neighbor, add that to the current space's score, and see if that's an improvement over our previous best.
+- We score the journey from our current space to each neighbor, add that to the current space's score, and see if that's an improvement over our previous best.
 - If it isn't throw it out. We already have a better route to that space.
 - If it _is_ an improvement, add it to our G scores, and update that map of "previous" spaces.
-- We continue this until there are no spaces left to consider, by which point we will have our route.
+- We continue this until there are no spaces left to consider, by which point we will have our route or it's unreachable.
 
 👏🏻👏🏻👏🏻
 
@@ -218,6 +242,7 @@ More specifically, as long as it...
 
 - Sorts our open set from best to worst
 - Produces scores that are equal to or worse than the real thing
+- (Good Vibes Only) Strictly positive
 
 ...our [math nerd] friends _guarantee_ us this will find the _best_ path to our goal.
 
@@ -227,52 +252,67 @@ Let's see this in action.
 
 👏🏻👏🏻👏🏻
 
-Our snake will now find food consistently, and like some odd chimera between a snake and a goldfish, it will live until it has eaten enough food to literally no longer fit in the space provided.
+That's so kind of you to applaud for our little Snake! It finds food consistently, and like some odd chimera between a snake and a goldfish, it will now live until it has eaten enough food to literally no longer fit in the space provided.
+
 ## Gray area
 
-Thirdly, like a couple of dogs walking to the park in fall, autumn leaves cascading down to the ground in every direction... let's talk about the gray area.
+We covered flood filling to understand the difference between wide open plains and NYC apartments.
 
-Remember, A* is about finding the _optimal_ path to a _known_ goal. And our flood fill algorithm was about finding the _safest_ choice based on the information we had at the time. But much of improving at a game—Snake or otherwise—comes down to making better decisions in the gray area in between words like "safe" and "optimal".
+We covered path finding to understand how to that NYC apartment from a wide open plain.
 
-So I'll leave you with one more technique, that I call "height mapping". If I was smarter or paid better attention in school, I might remember that it would _technically_ be called something like a tuned bias heuristic for Hart-Nilsson-Raphael search. But I didn't. And I'm not. And like two halves of a HARIBO Twin Snake, you're stuck with me, just as I’m stuck with a wife and two kids that like those disgusting things.
+Thirdly, like a couple of dogs walking through Central Park in fall, autumn leaves in every direction... let's talk about gray areas.
 
-But first, you might be thinking, "Hold up, Schoon. I know you're talking about AI [Aibo], but you didn't really talk about AI [Spot] like Julian did," to which I say, "Welcome back! Julian gave a whole talk on it and everything."
+Remember, A* is about finding the _optimal_ path to a _known_ goal. And our flood fill algorithm was about finding the _safest_ choice between a set of directions. But much of improving at a game—Snake or otherwise—comes down to making better decisions in the gray area in between words like "safe" and "optimal".
 
-But okay, okay, let's talk about neural networks.
+So I'll leave you with one more technique, that I call "height mapping". If I was smarter or paid better attention in school, I might have named it after myself or some other white dude or included words like "tuning" or "bias". But I didn't. And I'm not. And like two halves of a HARIBO Twin Snake, you're stuck with me, just as I’m stuck with a wife and two kids that like those disgusting things.
 
-I know it's a hot enough topic right now [Hot Topic] that you've seen everyone and their poodle explain how these things work, and I'm not going to rehash Julian's excellent explanation now, but I can remind you that a neural network aims to replicate some of the way our own neurons work by connecting a graph of nodes cleverly _called_ "neurons" with weights and edges.
+But first, you might be thinking, "Hold up, Schoon. You talked about AI [Aibo], but you didn't really talk about AI [Spot]," to which I'd say, "Fair enough."
 
-Like Julian said you have a series of "input neurons" on one side, each layer of neurons looks at the previous layer, and through these weights and edges contributes to the next layer. Finally a series of "output neurons" gives some fuzzy answer.
+So let's talk about neural networks.
+
+I know it's a hot enough topic right now [Hot Topic] that you've seen everyone and their poodle explain how these things work, but I'm going to give you the basics again anyway. A neural network aims to replicate some of the way our own neurons work by connecting a graph of nodes cleverly _called_ "neurons" with weights and edges. You have a series of "input neurons" on one side, each layer of neurons looks at the previous layer, and through these weights and edges contributes to the next layer. Finally a series of "output neurons" gives some fuzzy answer.
 
 👏🏻👏🏻👏🏻
 
 As a mathematical tool, it is incredibly powerful! So why did I just waste 20 minutes of your life talking about something _other than_ CNNs, GANs, GPTs, and other TLAs?!?
 
-I told you what this layer is called: the "input" layer. And I told you what this layer is called: the "output" layer. Do you know what these layers are actually called?
+This is a Donkey Car, and it drives itself using a neural network powered by a library called Tensorflow. It's designed to race against other autonomous cars its size, and it's _very_ cool. Thank you for saying so.
+
+I told you what this layer is called: it's the "input" layer. For this car, it's built from what it sees in the camera up front.
+
+And I told you what this layer is called: the "output" layer. How much throttle should it give? How far left or right should it steer?
+
+Do you know what these layers are actually called?
 
 Hidden layers.
 
-I didn't teach you about neural networks because they have a pernicious risk to them.
+I didn't teach you about neural networks because they have a pernicious risk to them. And I'm not talking about the collective carbon costs of running something like Chat-GPT, using more power than a developed nation to help you optimize a SQL query.
 
-While those weights I described _could_ be hand-tuned, nobody does that. Instead, they feed "training data" into the network—a "training set" of known inputs and outputs—and ask the system to balance its own weights until the network would generate the same results. Theoretically after this training process, you could feed "novel" data into the inputs, and get a reasonable output. Most training processes test this assumption with a _second_ set of known inputs and outputs, continuing to demonstrate the boundless creativity of mathematicians and AI researchers in being called the "testing set".
+No, *this* risk lies in the "hidden" part of those hidden layers.
+
+While those weights I described _could_ be hand-tuned, nobody does that. Instead, they feed "training data" into the network—a "training set" of known inputs and outputs—and ask the system to balance its own weights until the network would generate the same results. I drive the car around, and it's paying attention to any relationship between the camera feed and the controller inputs.
+
+Theoretically after this training process, you could feed "novel" data into the inputs, and get a reasonable output. Most training processes test this assumption with a _second_ set of known inputs and outputs, continuing to demonstrate the boundless creativity of mathematicians and AI researchers in being called the "testing set".
 
 👏🏻👏🏻👏🏻
 
-Now, what happens if you deploy this network, feed it real world input, and it produces an output that you don't expect?
+Now, what happens if you deploy this network, feed it real world input, and it produces an output that you don't expect? What happens when I tell this car to go, and it careens STRAIGHT into the nearest ditch?
 
 Anybody know?
 
 You *shrug*.
 
-Why does GPT-17 continue to hallucinate some wildly counterfactual output when asked about such-and-such a topic? Shrug.
+Why did GPT-17 hallucinate some horrible, offensive, or wildly counterfactual output when asked about such-and-such a topic? Shrug.
 
-Why did another self-driving car slowly lurch-and-stop, lurch-and-stop, lurch-and-stop through an active and roped-off crime scene? Shrug.
+Why did a much BIGGER self-driving car slowly lurch through an active and roped-off crime scene? Shrug.
 
 Why did Apple Maps send me down a dirt road, when the highway was _right there?_ Well, okay, that's a bad example. It's actually just using a path finding algorithm like we've already talked about.
 
 But more importantly and back to the point at hand, _why did my snake go RIGHT when clearly LEFT was the right choice?_ Shrug.
 
-So for today and for now and while our goal is to "play and have fun" and not to "win at all costs", we're going to make like a peanut with a Geiger counter and avoid the [computationally expensive] and environmentally catastrophic elephant in the room.
+I'll tell you a secret: what I _am_ teaching you today _is_ AI,  but they're AI that a human can observe and understand, _live_. I told you as much at the top: these same tools are used _today_ in games from Baldur's Gate to Minecraft, they're older than Doom and the odds are good that GOTY 2030 will use them, too. Your marketing team can still call it "AI" with _all_ the branding, while you use techniques that keep a human in the loop, that a human can fix, and whose decisions are clear to the *brilliant* humans *like you* that build it and maintain it.
+
+So for today and for now and while our goal is more "play and have fun" than "win at all costs", we're going to make like a peanut with a Geiger counter and avoid the radioactive elephant in the room.
 
 👏🏻👏🏻👏🏻
 
@@ -282,27 +322,31 @@ Back to height maps.
 
 What we want to do is take all the information: other snakes, walls, food, and the like, and compile a “height” that accounts for all of them simultaneously. “Higher” terrain means riskier terrain, and “lower”, safer. All else being equal, our snake slithers “downhill”.
 
-I lied earlier. There is one more rule in Battlesnake, and it has to do with "hazards".
+I lied earlier. [Though if you ask a small child, _it's not lying_: I simply didn't tell you the truth.] There's one more rule in Battlesnake, and it has to do with "hazards".
 
-The _reason_ your snake dies after 100 turns of no eating is that each tick, it loses 1 Health. And wheres Food restores a Snake's health to 100—in addition to growing it by one—a Hazard will _reduce_ the Snake's health by some amount; typically bringing the total "damage" of a turn to 15.
+The _reason_ your snake dies after 100 turns with no food is that every time it moves, it loses 1 Health. And whereas Food restores a Snake's health to 100, a Hazard will _reduce_ the Snake's health by some amount; typically bringing the total "damage" of a Move to 15.
 
 👏🏻👏🏻👏🏻
 
-The "height" we can use for our heightmap, then, can correspond to the literal risk to our snake's health. There's not even a new algorithm here, we need only to worry about data structures:
+The "height" we can use for our heightmap, then, should correspond to the literal risk to a snake's health.
+
+Remember the "scoring" discussion around A* earlier? Now we have an even better score: height. Rather than add 1 for each space, we can add the height of that space, so that the _easiest_ route to our food is also the "shortest" path as far as A* is concerned.
+
+There's not even a new algorithm here, we need only to worry about data structures:
 
 - Battlesnake gives us the structure that best supports their needs as an API provider: we get a width, a height, and an Array each for Snakes, Foods, and Hazards.
 - What we _want_ to do is look at one space on the grid, and see what lives there.
 - What we _will_ do is loop through these arrays we're given, and compile our own Map of locations to heights.
-- As we loop through the Hazards and Snakes, we'll increase the height.
-- As we loop through the Foods, we'll decrease it.
-- And for good measure, we can "bump out" the wall a little bit, and add a touch of height to every space near the edges.
-- We can add some smoothing, which encourages our snake not only to not share space with something dangerous, but to actively move away.
 
-Before we see this in action, remember the "scoring" discussion around A* earlier? Now we have an even better score: height. Rather than add 1 for each space, we can add the height of that space. While we're playing Hungry, Hungry Snakes and gobbling up all the food, we'll use the literal path of least resistance.
+- As we loop through the Hazards and Snakes, we'll increase the height.
+- As we loop through the Foods, we'll decrease it. Remembering back to A*, we need to be careful that this doesn't make the height _negative_.
+- And for good measure, we can "bump out" the wall a little bit, adding a touch of height and keeping our Snake away from the edges.
 
 👏🏻👏🏻👏🏻
 
-To really show this in action, here's a custom map that generates a series of mazes, with a piece of food as the "goal" of each maze. Make it to the food, the maze resets.
+To really show this in action, here's a custom map that generates a series of mazes made of out hazards, with a piece of food as the "goal" of each maze. Make it to the food, the maze resets.
+
+Let's see what happens.
 
 [Replay]
 
@@ -312,29 +356,60 @@ Look at that! We're playing the game, and we're playing reasonably well. We won'
 
 ## Next steps
 
-If we wanted to make it better, though, what would we do?
+If we wanted to make it even better, though, what would we do?
 
 First up, the basics:
 
 1. Decision-making. Our snake wants food like Joe Biden wants to be cool, but it doesn't have to be that way. We could elect someone who's _not_ an octogenarian white dude to the White House, and teach our snake to prioritize survival over its bacchanalian feast.
-2. Frameworks. We wrote this in vanilla Express, but could you write this more succinctly the framework you use every day?
-3. Languages. We wrote this in TypeScript, but there are Snakes are written in Kotlin, C++, Python, Go, Rust, Java, and even Bash (#!/bin/shnake). However there are actually very few Snakes competing with JavaScript right now, and I think that's a shame.
-4. Hosting. We ran today's snakes on this laptop, but "competitive" snakes (serious airquotes there) use long-running boxes in the cloud somewhere, like DigitalOcean, or Linode, or even Oracle Cloud. [I know!] What about the other end of the spectrum? How small of a device could you get a Snake to run on?
+2. [Performance. Our snake responds in X ms, but these same techniques can be made much faster, and doing so will continue to push our understanding of everything from basic data structures at first to how JavaScript works under the hood to either get those last precious milliseconds or to branch into more CPU-intensive techniques.
+	- Remember that flood filling algorithm that was recursive, but we used a priority queue for A-star? Flood filling can use a queue, too, and is demonstrably faster and less memory-hungry. It can also prune and collapse options that are either worse or duplicated, respectively.
+	- I really hope they make a mode with a "chess clock" someday, further rewarding _fast_ Snakes that *regularly* respond in less than 500ms.]
+3. Frameworks. We wrote this in vanilla Express, but I'm sure you could write this more succinctly in whatever framework you actualy use every day.
+4. Languages. We wrote this in TypeScript, but there are Snakes are written in Kotlin, C++, Python, Go, Rust, Java, and even Bash (#!/bin/shnake). There are actually very few Snakes competing with JavaScript right now, and I think that's a shame.
+5. Hosting. We ran today's snakes on this laptop, but "competitive" snakes (serious airquotes there) use long-running boxes in the cloud somewhere, like DigitalOcean, or Linode, or even Oracle Cloud. [I know!] What about the other end of the spectrum? How small of a device could you get a Snake to run on?
 
-Getting more advanced:
+Getting more advanced on the techniques side:
 
-- We could try minimax to make decisions. Minimax is a completely orthogonal approach to what we did today: powerful like a neural network, but still tractable. It requires simulating the game's potential outcomes, which makes it _way_ out of scope for a talk like this, but it's commonly used in games like Battlesnake.
-- Genetic algorithms use a generational process that's easy to audit. You could use one to weigh priorities, or to find a better height map.
-- And if you _are_ considering generative AI, I'd again recommend a platform like Battlesnake as a low-risk sandbox to learn and to experiment. Some folks already are.
+- There's a technique called "minimax" we could use to make decisions. Minimax is a completely orthogonal approach to what we did today, as it relies on simulating the game's potential outcomes. That makes it _way_ out of scope for a talk like this, but it's commonly used in games like chess, Go, and Battlesnake.
+- Genetic algorithms are a generational process that's more straightforward than it gets described. We could use one to weigh the priorities our snake uses, or to find a better height map.
+- And if you _are_ considering generative AI, I'd again recommend a platform like Battlesnake as a low-risk sandbox to learn and to experiment. I may not be an expert, but I am convinced there is _some_ way to make neural networks more observable in production, which would address one of their core weaknesses.
 
 👏🏻👏🏻👏🏻 (I promise, this is the last one.)
 
 ## Head to head
 
-But even without all that, how good is our snake already? Well, let's put it through its paces. Let's wrap this up, and play a little Battlesnake!
+But even without all that, how good is our snake already? Well, let's put it through its paces. Let's play some Battlesnake!
 
-I mentioned that there are four primary Game Modes in Battlesnake, but we're going to stick with the smallest and simplest: Duel. And to make things more interesting, we'll throw another Snake in the ring. This is the Snake I keep in competition, written in Rust.
+I mentioned that there are four primary Game Modes in Battlesnake: Duel, Standard, Royale, and Constrictor.
+
+Let's start with the smallest and the simplest: Duel. And to make things more interesting, we'll throw another Snake in the ring. This is the Snake I keep in competition, written in Rust.
 
 [Replay]
 
-If I've convinced you to try Battlesnake, check it out at play.battlesnake.com. If you have any questions about anything I've talked about today, ping me on the charmCityJS or Baltimore Tech Slacks, or send me an email.
+Awesome! How about a Standard match, and this time we'll use one copy from each stage of today's talk against that same Rust model (who does a little more). Same as its predecessor: last snake still slithering wins.
+
+[Replay]
+
+Constrictor is a little different: there's no need to eat, because your Snake perpetually grows. I don't expect our Snake will _thrive_ in that environment: the priorities are completely different, and more about maximizing "use of space" than a typical match.
+
+[Replay]
+
+Royale is where things get _interesting_: we'll have Hazards again, which descend on the center of the board as time goes on. Our Snake will need to manage its quest for food against their risk to life and...well, I guess it's not "limbs", because it's a snake, but you get the idea.
+
+[Replay]
+
+Bonus round! On top of Leaderboards, the Battlesnake community regularly runs Tournaments, and the last few used a new game mode, called "Snail". Each Snake leaves a slime trail behind it. That trail is made up of Hazards, is as long as the Snake, and has more of those Hazards stacked up nearest the tail.
+
+[Replay]
+
+I know I keep using words like "simple" to lull you into a potentially false sense of security, but I don't want to lose sight of what we did together today.
+
+So where do I think you go from here? Ideally, upstairs. The keynote is next.
+
+If I've convinced you to try Battlesnake, though, check it out at play.battlesnake.com. (That part wasn't a joke.) If you have any questions about anything I've talked about today, come find me around the conference or send me an email.
+
+Thank you all so much for your time and attention today. It was a generous gift, and it was an honor to be here again.
+
+👏🏻👏🏻👏🏻👏🏻
+👏🏻👏🏻👏🏻👏🏻
+👏🏻👏🏻👏🏻👏🏻

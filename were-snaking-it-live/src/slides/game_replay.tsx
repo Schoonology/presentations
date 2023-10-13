@@ -8,12 +8,17 @@ const OPTIONS = [
   // 'showScoreboard=false',
 ].join('&');
 
-export function GameReplay({fps, game_id, title}) {
+type GameReplayProps = {
+  game_id: string;
+
+  fps?: number;
+  title?: string;
+};
+
+export function GameReplay({fps, game_id, title}: GameReplayProps) {
   const replay_url = `${ROOT_URL}/?game=${game_id}&${OPTIONS}${
     title ? '&title=' + title : ''
-  }${
-    fps ? '&fps=' + fps : ''
-  }`;
+  }${fps ? '&fps=' + fps : ''}`;
 
   return (
     <>
@@ -27,7 +32,7 @@ export function GameReplay({fps, game_id, title}) {
   );
 }
 
-export function GameReplaySlide({fps, game_id, title}) {
+export function GameReplaySlide({fps, game_id, title}: GameReplayProps) {
   return (
     <Slide>
       <GameReplay fps={fps} game_id={game_id} title={title} />

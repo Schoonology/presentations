@@ -1,0 +1,34 @@
+server.post("/move", (req: MoveRequest, res: MoveResponse) => {
+  let move: MoveDirection | null = null;
+
+  if (req.body.board.food.length) {
+    // With the power of A*...
+    const path = aStar(
+      req.body.board,
+      req.body.you.head,
+      req.body.board.food[0]
+    );
+
+    // ...assuming it found a path...
+    if (path.length >= 2) {
+      // ...go THAT way!
+      move = direction(path[0], path[1]);
+    }
+  }
+
+  // Fall back to flood fill.
+  if (!move) {
+    const options = {
+      left: floodFill(req.body.board, nudgePoint(req.body.you.head, "left")),
+      right: floodFill(req.body.board, nudgePoint(req.body.you.head, "right")),
+      up: floodFill(req.body.board, nudgePoint(req.body.you.head, "up")),
+      down: floodFill(req.body.board, nudgePoint(req.body.you.head, "down")),
+    };
+
+    move = pickBest(options);
+  }
+
+  res.send({
+    move,
+  });
+});

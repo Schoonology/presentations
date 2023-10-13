@@ -10,6 +10,24 @@
       * {
         box-sizing: border-box;
       }
+
+      .strikeout {
+        position: relative;
+      }
+
+      .strikeout::after {
+        /* background-color: white; */
+        border: 2px solid;
+        border-radius: 999px;
+        content: '';
+        display: block;
+        height: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+      }
     </style>
   </body>
 </html>
