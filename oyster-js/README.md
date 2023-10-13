@@ -1,44 +1,16 @@
-Spectacle Boilerplate
-=====================
+# Shuck JavaScript
 
-## Contents
+So... I gave an unconference talk at LibertyJS 2023.
 
-- [Reference](#reference)
-- [Getting Started](#getting-started)
-- [Tutorial](#tutorial)
-- [Build & Deployment](#build-deployment)
+![](https://github.com/Schoonology/presentations/assets/21932/8ee07576-13b7-4013-b820-c82fca27c867)
 
-## Reference
+These are the slides, built in [Spectacle](https://github.com/FormidableLabs/spectacle/blob/main/README.md), but I'm really not sure how useful they are.
 
-The Spectacle core API is available in the [Spectacle Docs](https://github.com/FormidableLabs/spectacle/blob/main/README.md).
+## Running the slides
 
-## Getting Started
+At this point it should be as easy as:
 
-1. Install dependencies
-
-    ```sh
-    $ yarn install
-    ```
-
-2. Start the webpack server. The server will run at the default `webpack-dev-server` address, [`localhost:8080`](http://localhost:8080).
-
-    ```sh
-    $ yarn start
-
-    # Or with a specific port!
-    $ yarn start --port=3000
-    ```
-
-## Tutorial
-
-If want you a step-by-step guide for getting started with Spectacle, a basic tutorial is available [here](https://github.com/FormidableLabs/spectacle/blob/main/docs/tutorial.md).
-
-## Build & Deployment
-
-Building the dist version of the project is as easy as running
-
-```sh
-$ yarn build
 ```
-
-From there you can deploy the built slides  in `dist` to services like Netlify, Surge, etc!
+npm install
+npm start
+```
