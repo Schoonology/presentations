@@ -44,13 +44,11 @@ Though if you'll excuse me, I've already skipped the worst part of my talks: the
 
 Hi. My name is Michael Schoonmaker, but nobody calls me that because it's too long, too formal, and there are too many other middle-aged white dudes named "Michael" running around. Instead, folks call me Schoon.
 
-I have the honor of being the CTO of a startup called Squad, working on a React Native app that helps people create and deepen friendships. We're launching a new partnership with the NBA this fall. If any part of that sounds interesting, I will likely be hiring for one more by the end of the year. Come find me. I promise I'm this likeable—and funny—in person.
+I have the honor and privilege of being a freelance consultant, but my interest in today's subject comes from making games. These days I make games under the name Legacy of Play, but more importantly I help _other people_ make games as an advisor to UNPUB.
 
-My interest in today's subject comes from making games. These days I make games under the name Legacy of Play, but more importantly I help _other people_ make games as an advisor to UNPUB, the Unpublished Games Network, a nonprofit focused on supporting indie game designers of all stripes.
+If you like tabletop games of any kind, come join us next weekend up in my neck of the woods: after 4 cross-country moves; myself, my beautiful wife, our two amazing kids and our dog now live just up the road in Baltimore, Maryland.
 
-I grew up in Pennsylvania and I _love_ Philadelphia. After 4 cross-country moves; myself, my beautiful wife, our two amazing kids and our dog now live as close to Philly as ever: 1 hour's train away in Baltimore, Maryland. (Go O's?)
-
-Pertinent to this talk I *also* happen to be in the 28th percentile of all Battlesnake players, but I don't like to brag about it.
+Pertinent to this talk I *also* happen to be in the Top 20—*percent*—of all Battlesnake players.
 
 ## Battlesnake introduction: 3.5 minutes
 
@@ -258,7 +256,7 @@ That's so kind of you to applaud for our little Snake! It finds food consistentl
 
 We covered flood filling to understand the difference between wide open plains and NYC apartments.
 
-We covered path finding to understand how to that NYC apartment from a wide open plain.
+We covered path finding to understand how to get to that NYC apartment from a wide open plain.
 
 Thirdly, like a couple of dogs walking through Central Park in fall, autumn leaves in every direction... let's talk about gray areas.
 
@@ -408,7 +406,7 @@ So where do I think you go from here? Ideally, upstairs. The keynote is next.
 
 If I've convinced you to try Battlesnake, though, check it out at play.battlesnake.com. (That part wasn't a joke.) If you have any questions about anything I've talked about today, come find me around the conference or send me an email.
 
-Thank you all so much for your time and attention today. It was a generous gift, and it was an honor to be here again.
+Thank you all so much for your time and attention today. It was a generous gift, and it was an honor to be here.
 
 👏🏻👏🏻👏🏻👏🏻
 👏🏻👏🏻👏🏻👏🏻

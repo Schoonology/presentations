@@ -75,7 +75,7 @@ export const IMAGES = {
   battlesnakeScreenshot: loadAsset('img/screenshot.png', {
     alt: 'Screenshot of the Battlesnake website',
   }),
-  bs_board: require('../assets/img/bs-board.png').default,
+  // bs_board: require('../assets/img/bs-board.png').default,
   burger: require('../assets/img/burger.jpg').default,
   createSnakeScreenshot: loadAsset('img/screenshot-create-snake.png', {
     alt: 'Screenshot of the "Create Battlesnake" screen',

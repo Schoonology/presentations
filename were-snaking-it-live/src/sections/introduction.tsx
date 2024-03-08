@@ -30,9 +30,6 @@ export function IntroductionSection() {
         left={
           <>
             <FlexBox flexDirection="column">
-              <Appear priority={1}>
-                <LocalImage data={IMAGES.unpub} height="15vh" />
-              </Appear>
               <Heading fontSize="10vh">👋🏻</Heading>
               <Stepper priority={-3} values={[true, false]}>
                 {value =>
@@ -52,17 +49,6 @@ export function IntroductionSection() {
         right={
           <>
             <FlexBox flexDirection="column">
-              <Appear priority={-1}>
-                <Image
-                  src={IMAGES.squad}
-                  height="25vh"
-                  style={{
-                    backgroundColor: 'black',
-                    marginBottom: '5vh',
-                    padding: '3vh',
-                  }}
-                />
-              </Appear>
               <Appear priority={0}>
                 <Image
                   src={IMAGES.lop}
@@ -72,11 +58,13 @@ export function IntroductionSection() {
                   }}
                 />
               </Appear>
+              <Appear priority={1}>
+                <LocalImage data={IMAGES.unpub} height="10vh" />
+              </Appear>
             </FlexBox>
           </>
         }
       />
-      <EmojiSlide emoji="👁️❤️🔔" />
       <SlideLayout.FullBleedImage
         alt={UNSPLASH.baltimore_skyline.alt}
         src={UNSPLASH.baltimore_skyline.src}
@@ -85,15 +73,11 @@ export function IntroductionSection() {
         <FlexBox flexDirection="column">
           <FlexBox flexDirection="row">
             <Image src={IMAGES.battlesnake} height="5vh" />
-            <Heading>28th</Heading>
+            <Heading>Top 20</Heading>
           </FlexBox>
-          <Text>
-            Not 28th ranked, 28th <em>percentile</em>.
-          </Text>
-          <Text>
-            <small>
-              That's not good. That means 72% of players are better.
-            </small>
+          <Text opacity={0.7}>Percent.</Text>
+          <Text opacity={0.5}>
+            <small>That&rsquo;s...arguably acceptable.</small>
           </Text>
         </FlexBox>
       </SlideLayout.Center>
