@@ -18,7 +18,7 @@ npm start
 
 This talk was given at:
 
-- LibertyJS 2023
+- Frontrunners 2023
 - CharmCityJS October 2023
 
 Where should I give it next? Send me a line and let me know.

@@ -80,6 +80,7 @@ export const IMAGES = {
   createSnakeScreenshot: loadAsset('img/screenshot-create-snake.png', {
     alt: 'Screenshot of the "Create Battlesnake" screen',
   }),
+  donkey_car: require('../assets/img/donkey-car-graphic.jpg').default,
   duo_ai: require('../assets/img/duo-ai.png').default,
   duo_swole: require('../assets/img/duo-swole.gif').default,
   fish: require('../assets/img/fish.jpg').default,

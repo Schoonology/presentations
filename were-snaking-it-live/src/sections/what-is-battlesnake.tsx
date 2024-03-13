@@ -147,7 +147,7 @@ export function WhatIsBattlesnakeSection() {
         {
           "apiversion":"1",
           "author":"Schoonology",
-          "color":"#204581",
+          "color":"#ffcc00",
           "head":"shades",
           "tail":"wave",
           "version":"0.3.2"
@@ -199,7 +199,7 @@ export function WhatIsBattlesnakeSection() {
       `}</CodePane>
       </Slide>
       <EmojiSlide emoji={ENGAGED} count={2}></EmojiSlide>
-      <GameReplaySlide game_id="julia-child"></GameReplaySlide>
+      <GameReplaySlide game_id="mirror" fps={12}></GameReplaySlide>
     </>
   );
 }

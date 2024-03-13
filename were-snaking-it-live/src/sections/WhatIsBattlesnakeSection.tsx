@@ -128,7 +128,7 @@ export function WhatIsBattlesnakeSection() {
         {
           "apiversion":"1",
           "author":"Schoonology",
-          "color":"#204581",
+          "color":"#ffcc00",
           "head":"shades",
           "tail":"wave",
           "version":"0.3.2"

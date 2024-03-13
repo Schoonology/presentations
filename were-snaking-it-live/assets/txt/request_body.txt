@@ -113,7 +113,7 @@
         "shout": "",
         "squad": "",
         "customizations": {
-          "color": "#204581",
+          "color": "#ffcc00",
           "head": "shades",
           "tail": "wave"
         }

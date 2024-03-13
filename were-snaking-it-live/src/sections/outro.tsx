@@ -30,7 +30,7 @@ export function OutroSection() {
         <FlexBox flexDirection="column">
           <Image src={IMAGES.battlesnake} width="100%"></Image>
           <Text>play.battlesnake.com</Text>
-          <Heading>@schoon</Heading>
+          <Heading>@schoonology</Heading>
           <Text>hello @ schoonology.com</Text>
         </FlexBox>
         <Appear>

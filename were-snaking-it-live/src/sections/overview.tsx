@@ -19,7 +19,6 @@ import {EXTRA_COLORS, THEME} from '../theme';
 export function OverviewSection() {
   return (
     <>
-      <GameReplaySlide fps={18} game_id="julia-child" />
       <Slide>
         <Column>
           <ThemedOrderedList fit>
@@ -54,7 +53,7 @@ export function OverviewSection() {
             <Quote
               backgroundColor={EXTRA_COLORS.purple}
               padding="10vh"
-              style={{width: '100vw'}}>
+              style={{width: '70vw'}}>
               <Heading fontSize="1em">From the Battlesnake Discord:</Heading>
               <Text>&ldquo;Thanks for the clarification. 👍&rdquo;</Text>
               <Text>&ldquo;I feel a real sense of community&rdquo;</Text>

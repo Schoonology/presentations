@@ -15,6 +15,7 @@ import {Column, Row} from '../components/layout';
 import {Strikeout} from '../components/strikeout';
 import {FitHeading} from '../components/fit-heading';
 import {OverlayText} from '../components/overlay-text';
+import {LocalImage} from '../components/local-image';
 
 export function GrayAreaSection() {
   return (
@@ -91,6 +92,9 @@ export function GrayAreaSection() {
           <ListItem>Generative Pre-trained Transformers</ListItem>
           <ListItem>Three Letter Acronyms</ListItem>
         </UnorderedList>
+      </SlideLayout.Center>
+      <SlideLayout.Center>
+        <Image src={IMAGES.donkey_car} height="70vh" />
       </SlideLayout.Center>
       <SlideLayout.FullBleedImage
         alt="The same neural network"

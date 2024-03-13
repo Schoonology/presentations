@@ -98,7 +98,7 @@ export function HeightMapSection() {
         }
       />
       <SlideLayout.Code language="ts">{TEXT.height_map}</SlideLayout.Code>
-      <EmojiSlide emoji={ENGAGED} />
+      <EmojiSlide emoji={ENGAGED} count={2} />
       <GameReplaySlide fps={18} game_id="maze" />
       <EmojiSlide emoji={ENGAGED} />
     </>
